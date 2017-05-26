@@ -1,0 +1,82 @@
+[
+  {
+    "name": "Recruit",
+    "pays": "SAS, FBI SWAT, GIGN, Spetsnaz, GSG 9",
+    "description": ""
+  },
+  {
+    "name": "Mira",
+    "pays": "GEO",
+    "description": ""
+  },
+  {
+    "name": "Echo",
+    "pays": "SAT",
+    "description": "Véritable prodige de la robotique, Masaru Enatsu a grandi à Suginami. Bien décidé à contourner les limitations des armes à longue portée, Echo a mis au point Yokai ; ce drone volant émet des décharges soniques étourdissant toutes les cibles d\'un périmètre donné."
+  },
+  {
+    "name": "Caveira",
+    "pays": "BOPE",
+    "description": "Réputée pour ses interrogatoires musclés, Taina \"Caveira\" Pereira est un Agent tout aussi redoutable une fois sur le terrain. La furtivité prédatrice de Caveira, le \"Pas de velours\", lui permet de traquer ses proies presque sans un bruit."
+  },
+  {
+    "name": "Valkyrie",
+    "pays": "Navy SEALs",
+    "description": "Valkyrie est une des premières femmes ayant intégrées l\'entrainement des SEALs. Avec son \"Black Eye\", une caméra à déploiement rapide, elle permet d\'accéder à un flux vidéo en direct et de gagner ainsi un avantage tactique décisif."
+  },
+  {
+    "name": "Frost",
+    "pays": "GEO",
+    "description": ""
+  },
+  {
+    "name": "Kapkan",
+    "pays": "GEO",
+    "description": ""
+  },
+  {
+    "name": "Tatchanka",
+    "pays": "GEO",
+    "description": ""
+  },
+  {
+    "name": "Jäger",
+    "pays": "GEO",
+    "description": ""
+  },
+  {
+    "name": "Bandit",
+    "pays": "GEO",
+    "description": ""
+  },
+  {
+    "name": "Doc",
+    "pays": "GEO",
+    "description": ""
+  },
+  {
+    "name": "Rook",
+    "pays": "GEO",
+    "description": ""
+  },
+  {
+    "name": "Castle",
+    "pays": "GEO",
+    "description": ""
+  },
+  {
+    "name": "Pulse",
+    "pays": "GEO",
+    "description": ""
+  },
+  {
+    "name": "Mute",
+    "pays": "GEO",
+    "description": ""
+  },
+  {
+    "name": "Smoke",
+    "pays": "GEO",
+    "description": ""
+  }
+]

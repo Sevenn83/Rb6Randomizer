@@ -1,11 +1,18 @@
 <ion-content padding>
-  <h2>Welcome to Ionic!</h2>
-  <p>
-    This starter project comes with simple tabs-based layout for apps
-    that are going to primarily use a Tabbed UI.
-  </p>
-  <p>
-    Take a look at the <code>src/pages/</code> directory to add or change tabs,
-    update any existing page or create new pages.
-  </p>
+  <ion-grid>
+    <ion-row>
+      <ion-col center text-center>
+        <p>Défense</p>
+        <ion-toggle [(ngModel)]="camp" color="dark"></ion-toggle>
+        <p>Attaque</p>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-fab center>
+          <button (tap)="showState()" ion-fab><ion-icon name="shuffle"></ion-icon></button>
+        </ion-fab>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
