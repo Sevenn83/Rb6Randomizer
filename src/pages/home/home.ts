@@ -18,8 +18,11 @@ export class HomePage {
   }
 
   getRandOperator() {
-    this.randArrayOperator.unshift(this.getOperatorService.getRandomDefense());
-    console.log(this.randArrayOperator);
+    if (this.camp === false) {
+      this.randArrayOperator.unshift(this.getOperatorService.getRandomDefense());
+    } else {
+      this.randArrayOperator.unshift(this.getOperatorService.getRandomAttack());
+    }
   }
 
   cleanRandOperator() {

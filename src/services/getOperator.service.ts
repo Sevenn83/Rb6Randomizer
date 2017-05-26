@@ -27,7 +27,7 @@ export class GetOperatorService {
   private getOperator(): void {
 
     let urlDefense = 'assets/json/defense-operator.json';
-    let urlAttack = 'assets/json/defense-operator.json';
+    let urlAttack = 'assets/json/attack-operator.json';
 
     if (this.platform.is('cordova') && this.platform.is('android')) {
       urlDefense = "/android_asset/www/" + urlDefense;
@@ -48,6 +48,11 @@ export class GetOperatorService {
 
   public getRandomDefense(): OperatorModel {
     let randOperator = this.defenseOperator[Math.floor(Math.random() * this.defenseOperator.length)];
+    return new OperatorModel(randOperator.name, randOperator.name + ".png", randOperator.pays, randOperator.description);
+  }
+
+  public getRandomAttack(): OperatorModel {
+    let randOperator = this.attackOperator[Math.floor(Math.random() * this.attackOperator.length)];
     return new OperatorModel(randOperator.name, randOperator.name + ".png", randOperator.pays, randOperator.description);
   }
 
