@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 import {NavController} from 'ionic-angular';
-import { JsonService } from '../../services/json.service';
-import { OperatorModel } from '../../models/operator-model';
+import {GetOperatorService} from '../../services/getOperator.service';
+import {OperatorModel} from "../../models/operator-model";
 
 @Component({
   selector: 'page-home',
@@ -10,12 +10,19 @@ import { OperatorModel } from '../../models/operator-model';
 export class HomePage {
 
   camp: boolean = false;
+  randArrayOperator: OperatorModel[];
 
-  constructor(public navCtrl: NavController, public jsonService: JsonService) {
-     jsonService.getDefenseOperator();
+
+  constructor(public navCtrl: NavController, public getOperatorService: GetOperatorService) {
+    this.randArrayOperator = [];
   }
 
-  showState() {
-    console.log(this.camp);
+  getRandOperator() {
+    this.randArrayOperator.unshift(this.getOperatorService.getRandomDefense());
+    console.log(this.randArrayOperator);
+  }
+
+  cleanRandOperator() {
+    this.randArrayOperator = [];
   }
 }

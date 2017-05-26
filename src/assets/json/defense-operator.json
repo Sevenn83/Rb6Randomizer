@@ -12,71 +12,71 @@
   {
     "name": "Echo",
     "pays": "SAT",
-    "description": "Véritable prodige de la robotique, Masaru Enatsu a grandi à Suginami. Bien décidé à contourner les limitations des armes à longue portée, Echo a mis au point Yokai ; ce drone volant émet des décharges soniques étourdissant toutes les cibles d\'un périmètre donné."
+    "description": ""
   },
   {
     "name": "Caveira",
     "pays": "BOPE",
-    "description": "Réputée pour ses interrogatoires musclés, Taina \"Caveira\" Pereira est un Agent tout aussi redoutable une fois sur le terrain. La furtivité prédatrice de Caveira, le \"Pas de velours\", lui permet de traquer ses proies presque sans un bruit."
+    "description": ""
   },
   {
     "name": "Valkyrie",
     "pays": "Navy SEALs",
-    "description": "Valkyrie est une des premières femmes ayant intégrées l\'entrainement des SEALs. Avec son \"Black Eye\", une caméra à déploiement rapide, elle permet d\'accéder à un flux vidéo en direct et de gagner ainsi un avantage tactique décisif."
+    "description": ""
   },
   {
     "name": "Frost",
-    "pays": "GEO",
+    "pays": "JTF2",
     "description": ""
   },
   {
     "name": "Kapkan",
-    "pays": "GEO",
+    "pays": "Spetsnaz",
     "description": ""
   },
   {
     "name": "Tatchanka",
-    "pays": "GEO",
+    "pays": "Spetsnaz",
     "description": ""
   },
   {
     "name": "Jäger",
-    "pays": "GEO",
+    "pays": "GSG 9",
     "description": ""
   },
   {
     "name": "Bandit",
-    "pays": "GEO",
+    "pays": "GSG 9",
     "description": ""
   },
   {
     "name": "Doc",
-    "pays": "GEO",
+    "pays": "GIGN",
     "description": ""
   },
   {
     "name": "Rook",
-    "pays": "GEO",
+    "pays": "GIGN",
     "description": ""
   },
   {
     "name": "Castle",
-    "pays": "GEO",
+    "pays": "FBI SWAT",
     "description": ""
   },
   {
     "name": "Pulse",
-    "pays": "GEO",
+    "pays": "FBI SWAT",
     "description": ""
   },
   {
     "name": "Mute",
-    "pays": "GEO",
+    "pays": "SAS",
     "description": ""
   },
   {
     "name": "Smoke",
-    "pays": "GEO",
+    "pays": "SAS",
     "description": ""
   }
 ]

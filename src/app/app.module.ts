@@ -10,7 +10,7 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
-import { JsonService } from '../services/json.service';
+import { GetOperatorService } from '../services/getOperator.service';
 import { HttpModule } from '@angular/http'
 
 @NgModule({
@@ -33,7 +33,7 @@ import { HttpModule } from '@angular/http'
     TabsPage
   ],
   providers: [
-    JsonService,
+    GetOperatorService,
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler}

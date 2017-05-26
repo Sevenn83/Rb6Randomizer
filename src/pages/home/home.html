@@ -7,11 +7,24 @@
         <p>Attaque</p>
       </ion-col>
     </ion-row>
-    <ion-row>
+    <ion-row style="height: 65px;">
       <ion-col>
         <ion-fab center>
-          <button (tap)="showState()" ion-fab><ion-icon name="shuffle"></ion-icon></button>
+          <button (tap)="getRandOperator()" ion-fab color="dark"><ion-icon name="shuffle"></ion-icon></button>
         </ion-fab>
+      </ion-col>
+      <ion-col>
+        <ion-fab center>
+          <button (tap)="cleanRandOperator()" ion-fab color="dark"><ion-icon name="refresh"></ion-icon></button>
+        </ion-fab>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <p id="resultList">Résultat :</p>
+        <ion-list text-center>
+          <ion-item *ngFor="let operator of randArrayOperator">{{operator.name}} ({{operator.pays}})</ion-item>
+        </ion-list>
       </ion-col>
     </ion-row>
   </ion-grid>

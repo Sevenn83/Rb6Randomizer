@@ -1,3 +1,82 @@
-{
-  "test": "test"
-}
+[
+  {
+    "name": "Recruit",
+    "pays": "SAS, FBI SWAT, GIGN, Spetsnaz, GSG 9",
+    "description": ""
+  },
+  {
+    "name": "Jackal",
+    "pays": "GEO",
+    "description": ""
+  },
+  {
+    "name": "Hibana",
+    "pays": "SAT",
+    "description": ""
+  },
+  {
+    "name": "Capitão",
+    "pays": "BOPE",
+    "description": ""
+  },
+  {
+    "name": "Blackbeard",
+    "pays": "Navy SEALs",
+    "description": ""
+  },
+  {
+    "name": "Buck",
+    "pays": "JTF2",
+    "description": ""
+  },
+  {
+    "name": "Glaz",
+    "pays": "Spetsnaz",
+    "description": ""
+  },
+  {
+    "name": "Fuze",
+    "pays": "Spetsnaz",
+    "description": ""
+  },
+  {
+    "name": "Blitz",
+    "pays": "GSG 9",
+    "description": ""
+  },
+  {
+    "name": "IQ",
+    "pays": "GSG 9",
+    "description": ""
+  },
+  {
+    "name": "Montagne",
+    "pays": "GIGN",
+    "description": ""
+  },
+  {
+    "name": "Twitch",
+    "pays": "GIGN",
+    "description": ""
+  },
+  {
+    "name": "Thermite",
+    "pays": "FBI SWAT",
+    "description": ""
+  },
+  {
+    "name": "Ash",
+    "pays": "FBI SWAT",
+    "description": ""
+  },
+  {
+    "name": "Sledge",
+    "pays": "SAS",
+    "description": ""
+  },
+  {
+    "name": "Thatcher",
+    "pays": "SAS",
+    "description": ""
+  }
+]
