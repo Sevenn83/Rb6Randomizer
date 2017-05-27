@@ -1,4 +1,4 @@
-image: agileek/ionic-framework
+image: beevelop/ionic
 
 before_script:
 # Install dependencies
