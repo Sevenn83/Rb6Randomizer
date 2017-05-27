@@ -2,6 +2,7 @@ Instruction de lancement du projet :
 
 ```bash
 $ sudo npm install -g ionic cordova
+$ npm install
 $ ionic serve -l
 ```
 
