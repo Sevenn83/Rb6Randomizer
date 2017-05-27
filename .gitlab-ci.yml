@@ -10,5 +10,7 @@ stages:
 
 BuildTest:
   stage: build
+  only:
+    - master
   script:
   - ionic build android
