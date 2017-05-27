@@ -2,7 +2,6 @@ image: beevelop/ionic
 
 before_script:
 # Install dependencies
-- npm install -g ionic cordova
 - npm install
 
 cache:
