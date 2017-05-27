@@ -3,7 +3,6 @@ image: beevelop/ionic
 before_script:
 # Install dependencies
 - npm install
-- ionic cordova platform add android
 
 stages:
 - build
@@ -13,4 +12,5 @@ BuildTest:
   only:
     - master
   script:
+  - ionic platform add android
   - ionic build android
