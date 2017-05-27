@@ -3,7 +3,7 @@ image: agileek/ionic-framework
 before_script:
 # Install dependencies
 - npm install
-- ionic platform add android
+- ionic cordova platform add android
 
 stages:
 - build
