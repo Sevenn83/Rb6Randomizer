@@ -1,0 +1,13 @@
+image: agileek/ionic-framework
+
+before_script:
+# Install dependencies
+- ionic platform add android
+
+stages:
+- build
+
+BuildTest:
+  stage: build
+  script:
+  - ionic build android
