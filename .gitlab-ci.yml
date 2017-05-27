@@ -21,4 +21,3 @@ BuildTest:
   artifacts:
     paths:
       - /builds/Sevenn/Rb6Randomizer/platforms/android/build/outputs/apk/android-debug.apk
-    expire_in: 3 mos
