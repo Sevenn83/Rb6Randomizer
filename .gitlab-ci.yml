@@ -1,4 +1,4 @@
-image: beevelop/ionic
+image: shlomik/docker-ionic3
 
 before_script:
 # Install dependencies
@@ -17,5 +17,4 @@ BuildTest:
     - master
   script:
   - ionic platform add android
-  - cordova platform add android
   - ionic build android
