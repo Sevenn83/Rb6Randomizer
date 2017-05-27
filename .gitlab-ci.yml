@@ -1,8 +1,7 @@
-image: shlomik/docker-ionic3
+image: sevenn/ionic3
 
 before_script:
 # Install dependencies
-- npm install -g ionic cordova
 - npm install
 
 cache:
