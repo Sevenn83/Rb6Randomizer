@@ -18,4 +18,4 @@ BuildTest:
     - master
   script:
   - ionic cordova platform add android
-  - ionic build android
+  - ionic cordova build android
