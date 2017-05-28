@@ -7,7 +7,7 @@ export class OperatorModel {
 
   constructor(name: string, image: string, pays: string, description: string, active?: boolean) {
     this.name = name;
-    this.image = image;
+    this.image = image.toLowerCase();
     this.pays = pays;
     this.description = description;
     if (active === undefined) {

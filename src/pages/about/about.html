@@ -1,3 +1,24 @@
 <ion-content padding>
-  <p>Work in progress</p>
+  <ion-list>
+    <ion-list-header>
+      Défenseur
+    </ion-list-header>
+    <ion-item *ngFor="let operator of allDefenseOperator">
+      <ion-thumbnail item-left>
+        <img src="assets/icon/OPs-badges/{{operator.image}}">
+      </ion-thumbnail>
+      <h2>{{operator.name}}</h2>
+    </ion-item>
+  </ion-list>
+  <ion-list>
+    <ion-list-header>
+      Attaquant
+    </ion-list-header>
+    <ion-item *ngFor="let operator of allAttackOperator">
+      <ion-thumbnail item-left>
+        <img src="assets/icon/OPs-badges/{{operator.image}}">
+      </ion-thumbnail>
+      <h2>{{operator.name}}</h2>
+    </ion-item>
+  </ion-list>
 </ion-content>
