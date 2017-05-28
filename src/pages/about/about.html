@@ -7,7 +7,8 @@
       <ion-thumbnail item-left>
         <img src="assets/icon/OPs-badges/{{operator.image}}">
       </ion-thumbnail>
-      <h2>{{operator.name}}</h2>
+      <ion-label>{{operator.name}}</ion-label>
+      <ion-toggle [(ngModel)]="operator.active" color="dark" (ionChange)="changeEtatDefenseur(operator.id)"></ion-toggle>
     </ion-item>
   </ion-list>
   <ion-list>
@@ -18,7 +19,8 @@
       <ion-thumbnail item-left>
         <img src="assets/icon/OPs-badges/{{operator.image}}">
       </ion-thumbnail>
-      <h2>{{operator.name}}</h2>
+      <ion-label>{{operator.name}}</ion-label>
+      <ion-toggle [(ngModel)]="operator.active" color="dark" (ionChange)="changeEtatAttaquant(operator.id)"></ion-toggle>
     </ion-item>
   </ion-list>
 </ion-content>

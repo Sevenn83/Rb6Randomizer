@@ -58,7 +58,7 @@ export class GetOperatorService {
    */
   public getRandomDefense(): OperatorModel {
     let randOperator = this.activeDefenseOperator[Math.floor(Math.random() * this.activeDefenseOperator.length)];
-    return new OperatorModel(randOperator.name, randOperator.name + ".png", randOperator.pays, randOperator.description);
+    return new OperatorModel(randOperator.id, randOperator.name, randOperator.name + ".png", randOperator.pays, randOperator.description);
   }
 
   /***
@@ -67,7 +67,7 @@ export class GetOperatorService {
    */
   public getRandomAttack(): OperatorModel {
     let randOperator = this.activeAttackOperator[Math.floor(Math.random() * this.activeAttackOperator.length)];
-    return new OperatorModel(randOperator.name, randOperator.name + ".png", randOperator.pays, randOperator.description);
+    return new OperatorModel(randOperator.id, randOperator.name, randOperator.name + ".png", randOperator.pays, randOperator.description);
   }
 
   /***
@@ -143,7 +143,7 @@ export class GetOperatorService {
 
     let that = this;
 
-    this.deactiveAttackOpertator(function (element, i) {
+    this.deactiveAttackOpertator.forEach(function (element, i) {
       if (element.id === id) {
         that.activeAttackOperator.push(element);
         that.deactiveAttackOpertator.splice(i, 1);
@@ -160,7 +160,7 @@ export class GetOperatorService {
 
     let that = this;
 
-    this.deactiveDefenseOpertator(function (element, i) {
+    this.deactiveDefenseOpertator.forEach(function (element, i) {
       if (element.id === id) {
         that.activeDefenseOperator.push(element);
         that.deactiveDefenseOpertator.splice(i, 1);
