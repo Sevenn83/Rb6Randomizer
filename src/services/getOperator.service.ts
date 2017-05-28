@@ -13,11 +13,17 @@ import {OperatorModel} from '../models/operator-model';
 @Injectable()
 export class GetOperatorService {
 
-  private defenseOperator;
-  private attackOperator;
+  private activeDefenseOperator;
+  private activeAttackOperator;
+  private deactiveDefenseOpertator;
+  private deactiveAttackOpertator;
 
 
   constructor(private http: Http, private platform: Platform) {
+    this.activeDefenseOperator = [];
+    this.activeAttackOperator = [];
+    this.deactiveDefenseOpertator = [];
+    this.deactiveAttackOpertator = [];
     this.getOperator()
   }
 
@@ -37,23 +43,128 @@ export class GetOperatorService {
     // Récupération des Défenseur
     this.http.get(urlDefense)
       .map(res => res.json())
-      .subscribe(data => this.defenseOperator = data);
+      .subscribe(data => this.activeDefenseOperator = data);
 
     // Et des attaquant maintenant
     this.http.get(urlAttack)
       .map(res => res.json())
-      .subscribe(data => this.attackOperator = data);
+      .subscribe(data => this.activeAttackOperator = data);
 
   }
 
+  /***
+   * Retourne un opérateur défenseur actif aléatoire
+   * @returns {OperatorModel}
+   */
   public getRandomDefense(): OperatorModel {
-    let randOperator = this.defenseOperator[Math.floor(Math.random() * this.defenseOperator.length)];
+    let randOperator = this.activeDefenseOperator[Math.floor(Math.random() * this.activeDefenseOperator.length)];
     return new OperatorModel(randOperator.name, randOperator.name + ".png", randOperator.pays, randOperator.description);
   }
 
+  /***
+   * Retourne un opérateur attaquant actif aléatoire
+   * @returns {OperatorModel}
+   */
   public getRandomAttack(): OperatorModel {
-    let randOperator = this.attackOperator[Math.floor(Math.random() * this.attackOperator.length)];
+    let randOperator = this.activeAttackOperator[Math.floor(Math.random() * this.activeAttackOperator.length)];
     return new OperatorModel(randOperator.name, randOperator.name + ".png", randOperator.pays, randOperator.description);
   }
 
+  /***
+   * Retourne la liste des opérateurs attaquant actifs
+   * @returns OperatorModel[]
+   */
+  public getAllActiveAttackOperator(): OperatorModel[] {
+    return this.activeAttackOperator;
+  }
+
+  /***
+   * Retourne la liste des opérateurs défenseur actif
+   * @returns OperatorModel[]
+   */
+  public getAllActiveDefenseOperator(): OperatorModel[] {
+    return this.activeDefenseOperator;
+  }
+
+  /***
+   * Retourne la liste des opérateurs attaquant desactivé
+   * @returns OperatorModel[]
+   */
+  public getAllDeactiveAttackOperator(): OperatorModel[] {
+    return this.deactiveAttackOpertator;
+  }
+
+  /***
+   * Retourne la liste des opérateurs défenseur desactivé
+   * @returns OperatorModel[]
+   */
+  public getAllDeactiveDefenseOperator(): OperatorModel[] {
+    return this.deactiveDefenseOpertator;
+  }
+
+  /***
+   * Désactive un opérateur attaquant donnée
+   * @param id
+   */
+  public deactivateAttackOperator(id: number): void {
+
+    let that = this;
+
+    this.activeAttackOperator.forEach(function (element, i) {
+      if (element.id === id) {
+        that.deactiveAttackOpertator.push(element);
+        that.activeAttackOperator.splice(i, 1);
+      }
+    })
+  }
+
+  /***
+   * Désactive un opérateur défenseur donnée
+   * @param id
+   */
+  public deactivateDefenseOperator(id: number): void {
+
+    let that = this;
+
+    this.activeDefenseOperator.forEach(function (element, i) {
+      if (element.id === id) {
+        that.deactiveDefenseOpertator.push(element);
+        that.activeDefenseOperator.splice(i, 1);
+      }
+    })
+  }
+
+  /***
+   * Active un opérateur attaquant donnée
+   * @param id
+   */
+  public activateAttackOperator(id: number): void {
+
+
+    let that = this;
+
+    this.deactiveAttackOpertator(function (element, i) {
+      if (element.id === id) {
+        that.activeAttackOperator.push(element);
+        that.deactiveAttackOpertator.splice(i, 1);
+      }
+    })
+  }
+
+  /***
+   * Active un opérateur défenseur donnée
+   * @param id
+   */
+  public activateDefenseOperator(id: number): void {
+
+
+    let that = this;
+
+    this.deactiveDefenseOpertator(function (element, i) {
+      if (element.id === id) {
+        that.activeDefenseOperator.push(element);
+        that.deactiveDefenseOpertator.splice(i, 1);
+      }
+    })
+  }
 }

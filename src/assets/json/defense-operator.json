@@ -1,80 +1,96 @@
 [
   {
+    "id": 1,
     "name": "Recruit",
     "pays": "SAS, FBI SWAT, GIGN, Spetsnaz, GSG 9",
     "description": ""
   },
   {
+    "id": 2,
     "name": "Mira",
     "pays": "GEO",
     "description": ""
   },
   {
+    "id": 3,
     "name": "Echo",
     "pays": "SAT",
     "description": ""
   },
   {
+    "id": 4,
     "name": "Caveira",
     "pays": "BOPE",
     "description": ""
   },
   {
+    "id": 5,
     "name": "Valkyrie",
     "pays": "Navy SEALs",
     "description": ""
   },
   {
+    "id": 6,
     "name": "Frost",
     "pays": "JTF2",
     "description": ""
   },
   {
+    "id": 7,
     "name": "Kapkan",
     "pays": "Spetsnaz",
     "description": ""
   },
   {
+    "id": 8,
     "name": "Tatchanka",
     "pays": "Spetsnaz",
     "description": ""
   },
   {
+    "id": 9,
     "name": "Jäger",
     "pays": "GSG 9",
     "description": ""
   },
   {
+    "id": 10,
     "name": "Bandit",
     "pays": "GSG 9",
     "description": ""
   },
   {
+    "id": 11,
     "name": "Doc",
     "pays": "GIGN",
     "description": ""
   },
   {
+    "id": 12,
     "name": "Rook",
     "pays": "GIGN",
     "description": ""
   },
   {
+    "id": 13,
     "name": "Castle",
     "pays": "FBI SWAT",
     "description": ""
   },
   {
+    "id": 14,
     "name": "Pulse",
     "pays": "FBI SWAT",
     "description": ""
   },
   {
+    "id": 15,
     "name": "Mute",
     "pays": "SAS",
     "description": ""
   },
   {
+    "id": 16,
     "name": "Smoke",
     "pays": "SAS",
     "description": ""

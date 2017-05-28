@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {NavController} from 'ionic-angular';
+import {NavController, AlertController } from 'ionic-angular';
 import {GetOperatorService} from '../../services/getOperator.service';
 import {OperatorModel} from "../../models/operator-model";
 
@@ -13,15 +13,24 @@ export class HomePage {
   randArrayOperator: OperatorModel[];
 
 
-  constructor(public navCtrl: NavController, public getOperatorService: GetOperatorService) {
+  constructor(public navCtrl: NavController, public alertCtrl: AlertController , public getOperatorService: GetOperatorService) {
     this.randArrayOperator = [];
   }
 
   getRandOperator() {
-    if (this.camp === false) {
-      this.randArrayOperator.unshift(this.getOperatorService.getRandomDefense());
-    } else {
-      this.randArrayOperator.unshift(this.getOperatorService.getRandomAttack());
+    try {
+      if (this.camp === false) {
+        this.randArrayOperator.unshift(this.getOperatorService.getRandomDefense());
+      } else {
+        this.randArrayOperator.unshift(this.getOperatorService.getRandomAttack());
+      }
+    } catch (ex) {
+      let alert = this.alertCtrl.create({
+        title: 'Erreur',
+        subTitle: "Aucun opérateur activé",
+        buttons: ['Compris']
+      });
+      alert.present();
     }
   }
 
