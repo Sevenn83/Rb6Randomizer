@@ -13,8 +13,6 @@ stages:
 
 BuildTest:
   stage: build
-  only:
-    - master
   script:
   - ionic cordova platform add android
   - ionic cordova build android
