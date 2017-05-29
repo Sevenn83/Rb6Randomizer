@@ -13,9 +13,15 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { GetOperatorService } from '../services/getOperator.service';
 import { HttpModule } from '@angular/http'
 
-import { TranslateModule, TranslateLoader, TranslateService } from '@ngx-translate/core';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { Http } from '@angular/http';
+
+// The translate loader needs to know where to load i18n files
+// in Ionic's static asset pipeline.
+export function HttpLoaderFactory(http: Http) {
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+}
 
 @NgModule({
   declarations: [
@@ -31,11 +37,10 @@ import { Http } from '@angular/http';
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
-        useFactory: (createTranslateLoader),
+        useFactory: HttpLoaderFactory,
         deps: [Http]
       }
-    }),
-    TranslateModule.forChild()
+    })
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -52,13 +57,4 @@ import { Http } from '@angular/http';
   ]
 })
 
-export class AppModule {
-  constructor(translate: TranslateService) {
-    translate.setDefaultLang('en');
-    translate.use(navigator.language.split('-')[0]);
-  }
-}
-
-export function createTranslateLoader(http: Http) {
-  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
-}
+export class AppModule {}
