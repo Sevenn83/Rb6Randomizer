@@ -1,7 +1,8 @@
 <ion-content padding>
   <ion-list>
     <ion-list-header>
-      {{ 'DEFENSE' | translate }}
+      <ion-label>{{ 'DEFENSE' | translate }}</ion-label>
+      <ion-toggle (ionChange)="changeEtatAllDefenseur()" [(ngModel)]="etatAllDefenseur" color="dark"></ion-toggle>
     </ion-list-header>
     <ion-item *ngFor="let operator of allDefenseOperator">
       <ion-thumbnail item-left>
@@ -13,7 +14,8 @@
   </ion-list>
   <ion-list>
     <ion-list-header>
-      {{ 'ATTACK' | translate }}
+      <ion-label>{{ 'ATTACK' | translate }}</ion-label>
+      <ion-toggle  (ionChange)="changeEtatAllAttaquant()" [(ngModel)]="etatAllAttaquant" color="dark"></ion-toggle>
     </ion-list-header>
     <ion-item *ngFor="let operator of allAttackOperator">
       <ion-thumbnail item-left>

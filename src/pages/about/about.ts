@@ -9,6 +9,8 @@ import { OperatorModel } from '../../models/operator-model';
 })
 export class AboutPage {
 
+  etatAllAttaquant: boolean = true;
+  etatAllDefenseur: boolean = true;
   allAttackOperator: OperatorModel[];
   allDefenseOperator: OperatorModel[];
 
@@ -48,7 +50,6 @@ export class AboutPage {
           that.getOperatorService.activateAttackOperator(id);
         } else {
           that.getOperatorService.deactivateAttackOperator(id);
-          console.log(element);
         }
       }
     })
@@ -68,9 +69,24 @@ export class AboutPage {
           that.getOperatorService.activateDefenseOperator(id);
         } else {
           that.getOperatorService.deactivateDefenseOperator(id);
-          console.log(element);
         }
       }
     })
   }
+
+  changeEtatAllDefenseur(): void {
+    this.changeEtatAll(this.etatAllDefenseur, this.allDefenseOperator);
+  }
+
+  changeEtatAllAttaquant(): void {
+    this.changeEtatAll(this.etatAllAttaquant, this.allAttackOperator);
+  }
+
+  private changeEtatAll(value: boolean, side: OperatorModel[]): void {
+    console.log(value);
+    side.forEach(function (element) {
+      element.active = value;
+    })
+  }
+
 }
