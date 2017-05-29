@@ -1,7 +1,7 @@
 <ion-content padding>
   <ion-list>
     <ion-list-header>
-      Défenseur
+      {{ 'DEFENSE' | translate }}
     </ion-list-header>
     <ion-item *ngFor="let operator of allDefenseOperator">
       <ion-thumbnail item-left>
@@ -13,7 +13,7 @@
   </ion-list>
   <ion-list>
     <ion-list-header>
-      Attaquant
+      {{ 'ATTACK' | translate }}
     </ion-list-header>
     <ion-item *ngFor="let operator of allAttackOperator">
       <ion-thumbnail item-left>

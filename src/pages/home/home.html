@@ -2,9 +2,9 @@
   <ion-grid>
     <ion-row>
       <ion-col center text-center>
-        <p>{{ 'Défense' | translate }}</p>
+        <p>{{ 'DEFENSE' | translate }}</p>
         <ion-toggle [(ngModel)]="camp" color="dark"></ion-toggle>
-        <p>{{ 'Attaque' | translate }}</p>
+        <p>{{ 'ATTACK' | translate }}</p>
       </ion-col>
     </ion-row>
     <ion-row style="height: 65px;">
@@ -21,7 +21,7 @@
     </ion-row>
     <ion-row>
       <ion-col>
-        <p id="resultList">{{ 'Résultats :' | translate }}</p>
+        <p id="resultList">{{ 'RESULT' | translate }} :</p>
         <ion-list text-center>
           <ion-item *ngFor="let operator of randArrayOperator">{{operator.name}} ({{operator.pays}})</ion-item>
         </ion-list>
