@@ -1,22 +1,15 @@
-image: sevenn/ionic3:latest
-before_script:
-# Install dependencies
-- npm install
 cache:
   paths:
     - node_modules/
   key: "$CI_COMMIT_REF_NAME"
   untracked: true
+
 stages:
+- test
 - build
-BuildTest:
-  stage: build
-  script:
-  - ionic cordova build android
-  artifacts:
-    paths:
-      - /builds/Sevenn/Rb6Randomizer/platforms/android/build/outputs/apk/android-debug.apk
-    codequality:
+
+codequality:
+  stage: test
   image: docker:latest
   variables:
     DOCKER_DRIVER: overlay
@@ -28,3 +21,13 @@ BuildTest:
     - docker run --env CODECLIMATE_CODE="$PWD" --volume "$PWD":/code --volume /var/run/docker.sock:/var/run/docker.sock --volume /tmp/cc:/tmp/cc codeclimate/codeclimate analyze -f json > codeclimate.json
   artifacts:
     paths: [codeclimate.json]
+
+BuildTest:
+  stage: build
+  image: sevenn/ionic3:latest
+  script:
+  - npm install
+  - ionic cordova build android
+  artifacts:
+    paths:
+      - /builds/Sevenn/Rb6Randomizer/platforms/android/build/outputs/apk/android-debug.apk
