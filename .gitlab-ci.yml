@@ -1,18 +1,14 @@
 image: sevenn/ionic3:latest
-
 before_script:
 # Install dependencies
 - npm install
-
 cache:
   paths:
     - node_modules/
   key: "$CI_COMMIT_REF_NAME"
   untracked: true
-
 stages:
 - build
-
 BuildTest:
   stage: build
   script:
@@ -20,8 +16,7 @@ BuildTest:
   artifacts:
     paths:
       - /builds/Sevenn/Rb6Randomizer/platforms/android/build/outputs/apk/android-debug.apk
-
-codequality:
+    codequality:
   image: docker:latest
   variables:
     DOCKER_DRIVER: overlay
