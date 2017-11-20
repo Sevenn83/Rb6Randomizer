@@ -7,92 +7,92 @@
   },
   {
     "id": 2,
-    "name": "Mira",
-    "pays": "GEO",
-    "description": ""
-  },
-  {
-    "id": 3,
-    "name": "Echo",
-    "pays": "SAT",
-    "description": ""
-  },
-  {
-    "id": 4,
-    "name": "Caveira",
-    "pays": "BOPE",
-    "description": ""
-  },
-  {
-    "id": 5,
-    "name": "Valkyrie",
-    "pays": "Navy SEALs",
-    "description": ""
-  },
-  {
-    "id": 6,
-    "name": "Frost",
-    "pays": "JTF2",
-    "description": ""
-  },
-  {
-    "id": 7,
-    "name": "Kapkan",
-    "pays": "Spetsnaz",
-    "description": ""
-  },
-  {
-    "id": 8,
-    "name": "Tatchanka",
-    "pays": "Spetsnaz",
-    "description": ""
-  },
-  {
-    "id": 9,
-    "name": "Jager",
-    "pays": "GSG 9",
-    "description": ""
-  },
-  {
-    "id": 10,
-    "name": "Bandit",
-    "pays": "GSG 9",
-    "description": ""
-  },
-  {
-    "id": 11,
-    "name": "Doc",
-    "pays": "GIGN",
-    "description": ""
-  },
-  {
-    "id": 12,
-    "name": "Rook",
-    "pays": "GIGN",
-    "description": ""
-  },
-  {
-    "id": 13,
-    "name": "Castle",
-    "pays": "FBI SWAT",
-    "description": ""
-  },
-  {
-    "id": 14,
-    "name": "Pulse",
-    "pays": "FBI SWAT",
-    "description": ""
-  },
-  {
-    "id": 15,
     "name": "Mute",
     "pays": "SAS",
     "description": ""
   },
   {
-    "id": 16,
+    "id": 3,
     "name": "Smoke",
     "pays": "SAS",
+    "description": ""
+  },
+  {
+    "id": 4,
+    "name": "Pulse",
+    "pays": "FBI SWAT",
+    "description": ""
+  },
+  {
+    "id": 5,
+    "name": "Castle",
+    "pays": "FBI SWAT",
+    "description": ""
+  },
+  {
+    "id": 6,
+    "name": "Rook",
+    "pays": "GIGN",
+    "description": ""
+  },
+  {
+    "id": 7,
+    "name": "Doc",
+    "pays": "GIGN",
+    "description": ""
+  },
+  {
+    "id": 8,
+    "name": "Jager",
+    "pays": "GSG 9",
+    "description": ""
+  },
+  {
+    "id": 9,
+    "name": "Bandit",
+    "pays": "GSG 9",
+    "description": ""
+  },
+  {
+    "id": 10,
+    "name": "Kapkan",
+    "pays": "Spetsnaz",
+    "description": ""
+  },
+  {
+    "id": 11,
+    "name": "Tatchanka",
+    "pays": "Spetsnaz",
+    "description": ""
+  },
+  {
+    "id": 12,
+    "name": "Frost",
+    "pays": "JTF2",
+    "description": ""
+  },
+  {
+    "id": 13,
+    "name": "Valkyrie",
+    "pays": "Navy SEALs",
+    "description": ""
+  },
+  {
+    "id": 14,
+    "name": "Caveira",
+    "pays": "BOPE",
+    "description": ""
+  },
+  {
+    "id": 15,
+    "name": "Echo",
+    "pays": "SAT",
+    "description": ""
+  },
+  {
+    "id": 16,
+    "name": "Mira",
+    "pays": "GEO",
     "description": ""
   },
   {
@@ -105,6 +105,12 @@
     "id": 18,
     "name": "Ela",
     "pays": "GROM",
+    "description": ""
+  },
+  {
+    "id": 19,
+    "name": "Vigil",
+    "pays": "707th SMB",
     "description": ""
   }
 ]
