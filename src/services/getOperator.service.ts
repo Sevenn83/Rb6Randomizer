@@ -1,6 +1,6 @@
 // Core components
 import {Injectable}   from '@angular/core';
-import {Http}         from '@angular/http';
+import { HttpClient } from '@angular/common/http';
 import {Platform} from 'ionic-angular';
 
 // RxJS
@@ -19,7 +19,7 @@ export class GetOperatorService {
   private deactiveAttackOpertator;
 
 
-  constructor(private http: Http, private platform: Platform) {
+  constructor(private http: HttpClient, private platform: Platform) {
     this.activeDefenseOperator = [];
     this.activeAttackOperator = [];
     this.deactiveDefenseOpertator = [];
@@ -42,12 +42,10 @@ export class GetOperatorService {
 
     // Récupération des Défenseur
     this.http.get(urlDefense)
-      .map(res => res.json())
       .subscribe(data => this.activeDefenseOperator = data);
 
     // Et des attaquant maintenant
     this.http.get(urlAttack)
-      .map(res => res.json())
       .subscribe(data => this.activeAttackOperator = data);
 
   }
