@@ -11,15 +11,14 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { GetOperatorService } from '../services/getOperator.service';
-import { HttpModule } from '@angular/http'
 
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { Http } from '@angular/http';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 
 // The translate loader needs to know where to load i18n files
 // in Ionic's static asset pipeline.
-export function HttpLoaderFactory(http: Http) {
+export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
 
@@ -31,16 +30,16 @@ export function HttpLoaderFactory(http: Http) {
     TabsPage
   ],
   imports: [
-    HttpModule,
+    HttpClientModule,
     BrowserModule,
     IonicModule.forRoot(MyApp, { tabsPlacement: 'top' }),
     TranslateModule.forRoot({
-      loader: {
-        provide: TranslateLoader,
-        useFactory: HttpLoaderFactory,
-        deps: [Http]
-      }
-    })
+		loader: {
+			provide: TranslateLoader,
+			useFactory: (createTranslateLoader),
+			deps: [HttpClient]
+		}
+	})
   ],
   bootstrap: [IonicApp],
   entryComponents: [

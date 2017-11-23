@@ -7,98 +7,110 @@
   },
   {
     "id": 2,
-    "name": "Jackal",
-    "pays": "GEO",
-    "description": ""
-  },
-  {
-    "id": 3,
-    "name": "Hibana",
-    "pays": "SAT",
-    "description": ""
-  },
-  {
-    "id": 4,
-    "name": "Capitao",
-    "pays": "BOPE",
-    "description": ""
-  },
-  {
-    "id": 5,
-    "name": "Blackbeard",
-    "pays": "Navy SEALs",
-    "description": ""
-  },
-  {
-    "id": 6,
-    "name": "Buck",
-    "pays": "JTF2",
-    "description": ""
-  },
-  {
-    "id": 7,
-    "name": "Glaz",
-    "pays": "Spetsnaz",
-    "description": ""
-  },
-  {
-    "id": 8,
-    "name": "Fuze",
-    "pays": "Spetsnaz",
-    "description": ""
-  },
-  {
-    "id": 9,
-    "name": "Blitz",
-    "pays": "GSG 9",
-    "description": ""
-  },
-  {
-    "id": 10,
-    "name": "IQ",
-    "pays": "GSG 9",
-    "description": ""
-  },
-  {
-    "id": 11,
-    "name": "Montagne",
-    "pays": "GIGN",
-    "description": ""
-  },
-  {
-    "id": 12,
-    "name": "Twitch",
-    "pays": "GIGN",
-    "description": ""
-  },
-  {
-    "id": 13,
-    "name": "Thermite",
-    "pays": "FBI SWAT",
-    "description": ""
-  },
-  {
-    "id": 14,
-    "name": "Ash",
-    "pays": "FBI SWAT",
-    "description": ""
-  },
-  {
-    "id": 15,
     "name": "Sledge",
     "pays": "SAS",
     "description": ""
   },
   {
-    "id": 16,
+    "id": 3,
     "name": "Thatcher",
     "pays": "SAS",
+    "description": ""
+  },
+  {
+    "id": 4,
+    "name": "Thermite",
+    "pays": "FBI SWAT",
+    "description": ""
+  },
+  {
+    "id": 5,
+    "name": "Ash",
+    "pays": "FBI SWAT",
+    "description": ""
+  },
+  {
+    "id": 6,
+    "name": "Montagne",
+    "pays": "GIGN",
+    "description": ""
+  },
+  {
+    "id": 7,
+    "name": "Twitch",
+    "pays": "GIGN",
+    "description": ""
+  },
+  {
+    "id": 8,
+    "name": "Blitz",
+    "pays": "GSG 9",
+    "description": ""
+  },
+  {
+    "id": 9,
+    "name": "IQ",
+    "pays": "GSG 9",
+    "description": ""
+  },
+  {
+    "id": 10,
+    "name": "Glaz",
+    "pays": "Spetsnaz",
+    "description": ""
+  },
+  {
+    "id": 11,
+    "name": "Fuze",
+    "pays": "Spetsnaz",
+    "description": ""
+  },
+  {
+    "id": 12,
+    "name": "Buck",
+    "pays": "JTF2",
+    "description": ""
+  },
+  {
+    "id": 13,
+    "name": "Blackbeard",
+    "pays": "Navy SEALs",
+    "description": ""
+  },
+  {
+    "id": 14,
+    "name": "Capitao",
+    "pays": "BOPE",
+    "description": ""
+  },
+  {
+    "id": 15,
+    "name": "Hibana",
+    "pays": "SAT",
+    "description": ""
+  },
+  {
+    "id": 16,
+    "name": "Jackal",
+    "pays": "GEO",
     "description": ""
   },
   {
     "id": 17,
     "name": "Ying",
     "pays": "SDU",
+    "description": ""
+  },
+  {
+    "id": 18,
+    "name": "Zofia",
+    "pays": "GROM",
+    "description": ""
+  },
+  {
+    "id": 19,
+    "name": "Dokkaebi",
+    "pays": "707th SMB",
     "description": ""
   }
 ]

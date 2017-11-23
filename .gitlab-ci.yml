@@ -1,4 +1,4 @@
-image: sevenn/ionic3:latest
+image: beevelop/ionic:latest
 
 before_script:
 # Install dependencies
