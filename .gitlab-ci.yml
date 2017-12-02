@@ -1,21 +1,39 @@
-image: beevelop/ionic:latest
-
-before_script:
-# Install dependencies
-- npm install
-
-cache:
-  paths:
-    - node_modules/
-  key: "$CI_COMMIT_REF_NAME"
-  untracked: true
-
 stages:
+- analysis
 - build
+
+sonarqube:
+  stage: analysis
+  image: ciricihq/gitlab-sonar-scanner
+  variables:
+    SONAR_URL: "https://sonar.sevenn.fr"
+    SONAR_TOKEN: "$CI_SONAR_TOKEN"
+    SONAR_PROJECT_VERSION: "$CI_BUILD_ID"
+    SONAR_ANALYSIS_MODE: "issues"
+  script:
+  - /usr/bin/sonar-scanner-run.sh
+sonarqube-reports:
+  stage: analysis
+  image: ciricihq/gitlab-sonar-scanner
+  variables:
+    SONAR_URL: "https://sonar.sevenn.fr"
+    SONAR_TOKEN: "$CI_SONAR_TOKEN"
+    SONAR_PROJECT_VERSION: "$CI_BUILD_ID"
+    SONAR_ANALYSIS_MODE: "publish"
+  script:
+  - unset CI_BUILD_REF && /usr/bin/sonar-scanner-run.sh
 
 BuildTest:
   stage: build
+  image: beevelop/ionic:latest
+  cache:
+    paths:
+      - node_modules/
+    key: "$CI_COMMIT_REF_NAME"
+    untracked: true
   script:
+  - npm install yarn -g
+  - yarn install
   - ionic cordova build android
   artifacts:
     paths:
