@@ -6,7 +6,7 @@
     </ion-list-header>
     <ion-item *ngFor="let operator of allDefenseOperator">
       <ion-thumbnail item-left>
-        <img src="assets/icon/OPs-badges/{{operator.image}}">
+        <img src="assets/icon/OPs-badges/{{operator.image}}" alt="op badge">
       </ion-thumbnail>
       <ion-label>{{operator.name}} ({{operator.pays}})</ion-label>
       <ion-toggle [(ngModel)]="operator.active" color="dark" (ionChange)="changeEtatDefenseur(operator.id)"></ion-toggle>
@@ -19,7 +19,7 @@
     </ion-list-header>
     <ion-item *ngFor="let operator of allAttackOperator">
       <ion-thumbnail item-left>
-        <img src="assets/icon/OPs-badges/{{operator.image}}">
+        <img src="assets/icon/OPs-badges/{{operator.image}}" alt="op badge">
       </ion-thumbnail>
       <ion-label>{{operator.name}} ({{operator.pays}})</ion-label>
       <ion-toggle [(ngModel)]="operator.active" color="dark" (ionChange)="changeEtatAttaquant(operator.id)"></ion-toggle>
