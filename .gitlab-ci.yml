@@ -11,6 +11,7 @@ sonarqube:
     SONAR_PROJECT_VERSION: "$CI_BUILD_ID"
     SONAR_ANALYSIS_MODE: "issues"
   script:
+  - apt-get install -y nodejs
   - /usr/bin/sonar-scanner-run.sh
 sonarqube-reports:
   stage: analysis
@@ -21,6 +22,7 @@ sonarqube-reports:
     SONAR_PROJECT_VERSION: "$CI_BUILD_ID"
     SONAR_ANALYSIS_MODE: "publish"
   script:
+  - apt-get install -y nodejs
   - unset CI_BUILD_REF && /usr/bin/sonar-scanner-run.sh
 
 BuildTest:
