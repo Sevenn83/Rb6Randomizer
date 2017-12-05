@@ -23,7 +23,12 @@
       <ion-col>
         <p id="resultList">{{ 'RESULT' | translate }} :</p>
         <ion-list text-center>
-          <ion-item *ngFor="let operator of randArrayOperator">{{operator.name}} ({{operator.pays}})</ion-item>
+          <ion-item *ngFor="let operator of randArrayOperator">
+            <ion-thumbnail item-left>
+              <img src="assets/icon/OPs-badges/{{operator.image}}" alt="op badge">
+            </ion-thumbnail>
+            <ion-label>{{operator.name}} ({{operator.pays}})</ion-label>
+          </ion-item>
         </ion-list>
       </ion-col>
     </ion-row>
