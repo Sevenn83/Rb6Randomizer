@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="fr.sevenn.rb6randomizer" version="1.2.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="fr.sevenn.rb6randomizer" version="1.2.2" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>Rb6Randomizer</name>
     <description>Let me pick your operator randomly</description>
     <author email="contact@sevenn.fr" href="https://sevenn.fr">Sevenn</author>
