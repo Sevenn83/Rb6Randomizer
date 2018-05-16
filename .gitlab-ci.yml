@@ -32,6 +32,7 @@ BuildTest:
     key: "$CI_COMMIT_REF_NAME"
     untracked: true
   script:
+  - curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - && apt-get update && apt-get install yarn
   - yarn install
   - ionic cordova build android
   artifacts:
