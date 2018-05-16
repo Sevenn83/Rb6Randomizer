@@ -112,5 +112,17 @@
     "name": "Dokkaebi",
     "pays": "707th SMB",
     "description": ""
+  },
+  {
+    "id":20,
+    "name": "Finka",
+    "pays": "NRBC",
+    "description": ""
+  },
+  {
+    "id": 21,
+    "name": "Lion",
+    "pays": "NRBC",
+    "description": ""
   }
 ]
