@@ -32,8 +32,8 @@ BuildTest:
     key: "$CI_COMMIT_REF_NAME"
     untracked: true
   script:
-  - npm install
-  - npm i @ionic/app-scripts
+  - yarn install
+  - yarn install @ionic/app-scripts
   - ionic cordova build android
   artifacts:
     paths:
