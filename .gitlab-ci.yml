@@ -33,6 +33,7 @@ BuildTest:
     untracked: true
   script:
   - npm install
+  - npm i @ionic/app-scripts
   - ionic cordova build android
   artifacts:
     paths:
