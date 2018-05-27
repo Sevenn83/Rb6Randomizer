@@ -112,5 +112,17 @@
     "name": "Vigil",
     "pays": "707th SMB",
     "description": ""
+  },
+  {
+    "id": 20,
+    "name": "Alibi",
+    "pays": "GIS",
+    "description": ""
+  },
+  {
+    "id": 21,
+    "name": "Maestro",
+    "pays": "GIS",
+    "description": ""
   }
 ]
