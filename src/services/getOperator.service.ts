@@ -1,168 +1,237 @@
 // Core components
-import {Injectable}   from '@angular/core';
+import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import {Platform} from 'ionic-angular';
+import { Platform } from 'ionic-angular';
 
 // RxJS
 import 'rxjs/add/operator/toPromise';
 import 'rxjs/add/operator/map';
 
-import {OperatorModel} from '../models/operator-model';
+import { OperatorModel } from '../models/operator-model';
+import { Storage } from '@ionic/storage';
 
 
 @Injectable()
 export class GetOperatorService {
 
-  private activeDefenseOperator;
-  private activeAttackOperator;
-  private deactiveDefenseOpertator;
-  private deactiveAttackOpertator;
+    private allDefenseOperator;
+    private allAttackOperator;
+    private activeDefenseOperator;
+    private activeAttackOperator;
+    private deactiveDefenseOperator;
+    private deactiveAttackOperator;
 
 
-  constructor(private http: HttpClient, private platform: Platform) {
-    this.activeDefenseOperator = [];
-    this.activeAttackOperator = [];
-    this.deactiveDefenseOpertator = [];
-    this.deactiveAttackOpertator = [];
-    this.getOperator()
-  }
-
-  /***
-   * Permet la récupération des opérateur dans les deux fichié json
-   */
-  private getOperator(): void {
-
-    let urlDefense = 'assets/json/defense-operator.json';
-    let urlAttack = 'assets/json/attack-operator.json';
-
-    if (this.platform.is('cordova') && this.platform.is('android')) {
-      urlDefense = "/android_asset/www/" + urlDefense;
-      urlAttack = "/android_asset/www/" + urlAttack;
+    constructor(private http: HttpClient, private platform: Platform, private storage: Storage) {
+        this.allDefenseOperator = [];
+        this.allAttackOperator = [];
+        this.activeDefenseOperator = [];
+        this.activeAttackOperator = [];
+        this.deactiveDefenseOperator = [];
+        this.deactiveAttackOperator = [];
+        this.getOperator()
     }
 
-    // Récupération des Défenseur
-    this.http.get(urlDefense)
-      .subscribe(data => this.activeDefenseOperator = data);
+    /***
+     * Permet la récupération des opérateurs dans les deux fichiers json
+     */
+    private getOperator(): void {
 
-    // Et des attaquant maintenant
-    this.http.get(urlAttack)
-      .subscribe(data => this.activeAttackOperator = data);
+        //Nettoyage localstorage
+        //this.storage.clear();
 
-  }
+        let urlDefense = 'assets/json/defense-operator.json';
+        let urlAttack = 'assets/json/attack-operator.json';
 
-  /***
-   * Retourne un opérateur défenseur actif aléatoire
-   * @returns {OperatorModel}
-   */
-  public getRandomDefense(): OperatorModel {
-    let randOperator = this.activeDefenseOperator[Math.floor(Math.random() * this.activeDefenseOperator.length)];
-    return new OperatorModel(randOperator.id, randOperator.name, randOperator.name + ".png", randOperator.pays, randOperator.description);
-  }
+        if (this.platform.is('cordova') && this.platform.is('android')) {
+            urlDefense = "/android_asset/www/" + urlDefense;
+            urlAttack = "/android_asset/www/" + urlAttack;
+        }
 
-  /***
-   * Retourne un opérateur attaquant actif aléatoire
-   * @returns {OperatorModel}
-   */
-  public getRandomAttack(): OperatorModel {
-    let randOperator = this.activeAttackOperator[Math.floor(Math.random() * this.activeAttackOperator.length)];
-    return new OperatorModel(randOperator.id, randOperator.name, randOperator.name + ".png", randOperator.pays, randOperator.description);
-  }
+        // Récupération des défenseurs
+        this.http.get(urlDefense)
+            .subscribe(data => this.allDefenseOperator = data, null, () => this.saveDefenseOperatorsStatus());
 
-  /***
-   * Retourne la liste des opérateurs attaquant actifs
-   * @returns OperatorModel[]
-   */
-  public getAllActiveAttackOperator(): OperatorModel[] {
-    return this.activeAttackOperator;
-  }
+        // Et des attaquants maintenant
+        this.http.get(urlAttack)
+            .subscribe(data => this.allAttackOperator = data, null, () => this.saveAttackOperatorsStatus());
 
-  /***
-   * Retourne la liste des opérateurs défenseur actif
-   * @returns OperatorModel[]
-   */
-  public getAllActiveDefenseOperator(): OperatorModel[] {
-    return this.activeDefenseOperator;
-  }
+        /*
+        this.storage.forEach((value, key, index) => {
+            console.log(key, ": ", value);
+        });
+        */
+    }
 
-  /***
-   * Retourne la liste des opérateurs attaquant desactivé
-   * @returns OperatorModel[]
-   */
-  public getAllDeactiveAttackOperator(): OperatorModel[] {
-    return this.deactiveAttackOpertator;
-  }
+    /***
+     * Enregistre l'état de tous les opérateurs défense
+     */
+    public saveDefenseOperatorsStatus(): void {
+        let that = this;
+        this.allDefenseOperator.forEach(function (element) {
+            that.storage.get("DEF/" + element.name).then((val) => {
+                if (val === null) {
+                    that.storage.set("DEF/" + element.name, true);
+                }
+                if (val === true) {
+                    that.activeDefenseOperator.push(element);
+                } else {
+                    that.deactiveDefenseOperator.push(element);
+                }
+            });
+        });
+    }
 
-  /***
-   * Retourne la liste des opérateurs défenseur desactivé
-   * @returns OperatorModel[]
-   */
-  public getAllDeactiveDefenseOperator(): OperatorModel[] {
-    return this.deactiveDefenseOpertator;
-  }
+    /***
+     * Enregistre l'état de tous les opérateurs attaque
+     */
+    public saveAttackOperatorsStatus(): void {
+        let that = this;
+        this.allAttackOperator.forEach(function (element) {
+            that.storage.get("ATK/" + element.name).then((val) => {
+                if (val === null) {
+                    that.storage.set("ATK/" + element.name, true);
+                }
+                if (val === true) {
+                    that.activeAttackOperator.push(element);
+                } else {
+                    that.deactiveAttackOperator.push(element);
+                }
+            });
+        });
+    }
 
-  /***
-   * Désactive un opérateur attaquant donnée
-   * @param id
-   */
-  public deactivateAttackOperator(id: number): void {
+    /***
+     * Retourne un opérateur défenseur actif aléatoire
+     * @returns {OperatorModel}
+     */
+    public getRandomDefense(): OperatorModel {
+        let randOperator = this.activeDefenseOperator[Math.floor(Math.random() * this.activeDefenseOperator.length)];
+        return new OperatorModel(randOperator.id, randOperator.name, randOperator.name + ".png", randOperator.pays, randOperator.description);
+    }
 
-    let that = this;
+    /***
+     * Retourne un opérateur attaquant actif aléatoire
+     * @returns {OperatorModel}
+     */
+    public getRandomAttack(): OperatorModel {
+        let randOperator = this.activeAttackOperator[Math.floor(Math.random() * this.activeAttackOperator.length)];
+        return new OperatorModel(randOperator.id, randOperator.name, randOperator.name + ".png", randOperator.pays, randOperator.description);
+    }
 
-    this.activeAttackOperator.forEach(function (element, i) {
-      if (element.id === id) {
-        that.deactiveAttackOpertator.push(element);
-        that.activeAttackOperator.splice(i, 1);
-      }
-    })
-  }
+    /***
+     * Retourne la liste des opérateurs attaquant actifs
+     * @returns OperatorModel[]
+     */
+    public getAllActiveAttackOperator(): OperatorModel[] {
+        return this.activeAttackOperator;
+    }
 
-  /***
-   * Désactive un opérateur défenseur donnée
-   * @param id
-   */
-  public deactivateDefenseOperator(id: number): void {
+    /***
+     * Retourne la liste des opérateurs attaquants
+     * @returns OperatorModel[]
+     */
+    public getAllAttackOperator(): OperatorModel[] {
+        return this.allAttackOperator;
+    }
 
-    let that = this;
+    /***
+     * Retourne la liste des opérateurs défenseurs
+     * @returns OperatorModel[]
+     */
+    public getAllDefenseOperator(): OperatorModel[] {
+        return this.allDefenseOperator;
+    }
 
-    this.activeDefenseOperator.forEach(function (element, i) {
-      if (element.id === id) {
-        that.deactiveDefenseOpertator.push(element);
-        that.activeDefenseOperator.splice(i, 1);
-      }
-    })
-  }
+    /***
+     * Retourne la liste des opérateurs défenseur actif
+     * @returns OperatorModel[]
+     */
+    public getAllActiveDefenseOperator(): OperatorModel[] {
+        return this.activeDefenseOperator;
+    }
 
-  /***
-   * Active un opérateur attaquant donnée
-   * @param id
-   */
-  public activateAttackOperator(id: number): void {
+    /***
+     * Retourne la liste des opérateurs attaquant desactivé
+     * @returns OperatorModel[]
+     */
+    public getAllDeactiveAttackOperator(): OperatorModel[] {
+        return this.deactiveAttackOperator;
+    }
 
+    /***
+     * Retourne la liste des opérateurs défenseur desactivé
+     * @returns OperatorModel[]
+     */
+    public getAllDeactiveDefenseOperator(): OperatorModel[] {
+        return this.deactiveDefenseOperator;
+    }
 
-    let that = this;
+    /***
+     * Active un opérateur attaquant donné
+     * @param id
+     */
+    public activateAttackOperator(id: number): void {
+        
+        let that = this;
 
-    this.deactiveAttackOpertator.forEach(function (element, i) {
-      if (element.id === id) {
-        that.activeAttackOperator.push(element);
-        that.deactiveAttackOpertator.splice(i, 1);
-      }
-    })
-  }
+        this.deactiveAttackOperator.forEach(function (element, i) {
+            if (element.id === id) {
+                that.storage.set("ATK/" + element.name, true);
+                that.activeAttackOperator.push(element);
+                that.deactiveAttackOperator.splice(i, 1);
+            }
+        })
+    }
 
-  /***
-   * Active un opérateur défenseur donnée
-   * @param id
-   */
-  public activateDefenseOperator(id: number): void {
+    /***
+     * Désactive un opérateur attaquant donné
+     * @param id
+     */
+    public deactivateAttackOperator(id: number): void {
 
+        let that = this;
 
-    let that = this;
+        this.activeAttackOperator.forEach(function (element, i) {
+            if (element.id === id) {
+                that.storage.set("ATK/" + element.name, false);
+                that.deactiveAttackOperator.push(element);
+                that.activeAttackOperator.splice(i, 1);
+            }
+        })
+    }
 
-    this.deactiveDefenseOpertator.forEach(function (element, i) {
-      if (element.id === id) {
-        that.activeDefenseOperator.push(element);
-        that.deactiveDefenseOpertator.splice(i, 1);
-      }
-    })
-  }
+    /***
+     * Active un opérateur défenseur donné
+     * @param id
+     */
+    public activateDefenseOperator(id: number): void {
+        
+        let that = this;
+
+        this.deactiveDefenseOperator.forEach(function (element, i) {
+            if (element.id === id) {
+                that.storage.set("DEF/" + element.name, true);
+                that.activeDefenseOperator.push(element);
+                that.deactiveDefenseOperator.splice(i, 1);
+            }
+        })
+    }
+
+    /***
+     * Désactive un opérateur défenseur donné
+     * @param id
+     */
+    public deactivateDefenseOperator(id: number): void {
+
+        let that = this;
+
+        this.activeDefenseOperator.forEach(function (element, i) {
+            if (element.id === id) {
+                that.storage.set("DEF/" + element.name, false);
+                that.deactiveDefenseOperator.push(element);
+                that.activeDefenseOperator.splice(i, 1);
+            }
+        })
+    }
 }

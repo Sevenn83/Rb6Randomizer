@@ -16,6 +16,8 @@ import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 
+import { IonicStorageModule } from '@ionic/storage';
+
 // The translate loader needs to know where to load i18n files
 // in Ionic's static asset pipeline.
 export function createTranslateLoader(http: HttpClient) {
@@ -29,7 +31,7 @@ export function createTranslateLoader(http: HttpClient) {
     HomePage,
     TabsPage
   ],
-  imports: [
+    imports: [
     HttpClientModule,
     BrowserModule,
     IonicModule.forRoot(MyApp, { tabsPlacement: 'top' }),
@@ -39,7 +41,8 @@ export function createTranslateLoader(http: HttpClient) {
 			useFactory: (createTranslateLoader),
 			deps: [HttpClient]
 		}
-	})
+	}),
+    IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [
