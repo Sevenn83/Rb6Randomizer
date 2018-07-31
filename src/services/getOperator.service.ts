@@ -22,7 +22,7 @@ export class GetOperatorService {
     private deactiveAttackOperator;
 
 
-    constructor(private http: HttpClient, private platform: Platform, private storage: Storage) {
+    constructor(private readonly http: HttpClient, private readonly platform: Platform, private storage: Storage) {
         this.allDefenseOperator = [];
         this.allAttackOperator = [];
         this.activeDefenseOperator = [];
@@ -57,26 +57,38 @@ export class GetOperatorService {
             .subscribe(data => this.allAttackOperator = data, null, () => this.saveAttackOperatorsStatus());
 
         /*
+        //Afficher dans la console tout ce qui est stocké dans localstorage
         this.storage.forEach((value, key, index) => {
             console.log(key, ": ", value);
         });
         */
+
+        this.storage.get("DEF/allOperators").then((val) => {
+            if (val === null) {
+                this.storage.set("DEF/allOperators", true);
+            }
+        });
+
+        this.storage.get("ATK/allOperators").then((val) => {
+            if (val === null) {
+                this.storage.set("ATK/allOperators", true);
+            }
+        });
     }
 
     /***
      * Enregistre l'état de tous les opérateurs défense
      */
     public saveDefenseOperatorsStatus(): void {
-        let that = this;
-        this.allDefenseOperator.forEach(function (element) {
-            that.storage.get("DEF/" + element.name).then((val) => {
+        this.allDefenseOperator.forEach((element) => {
+            this.storage.get("DEF/" + element.name).then((val) => {
                 if (val === null) {
-                    that.storage.set("DEF/" + element.name, true);
+                    this.storage.set("DEF/" + element.name, true);
                 }
                 if (val === true) {
-                    that.activeDefenseOperator.push(element);
+                    this.activeDefenseOperator.push(element);
                 } else {
-                    that.deactiveDefenseOperator.push(element);
+                    this.deactiveDefenseOperator.push(element);
                 }
             });
         });
@@ -86,16 +98,15 @@ export class GetOperatorService {
      * Enregistre l'état de tous les opérateurs attaque
      */
     public saveAttackOperatorsStatus(): void {
-        let that = this;
-        this.allAttackOperator.forEach(function (element) {
-            that.storage.get("ATK/" + element.name).then((val) => {
+        this.allAttackOperator.forEach((element) => {
+            this.storage.get("ATK/" + element.name).then((val) => {
                 if (val === null) {
-                    that.storage.set("ATK/" + element.name, true);
+                    this.storage.set("ATK/" + element.name, true);
                 }
                 if (val === true) {
-                    that.activeAttackOperator.push(element);
+                    this.activeAttackOperator.push(element);
                 } else {
-                    that.deactiveAttackOperator.push(element);
+                    this.deactiveAttackOperator.push(element);
                 }
             });
         });
@@ -106,7 +117,7 @@ export class GetOperatorService {
      * @returns {OperatorModel}
      */
     public getRandomDefense(): OperatorModel {
-        let randOperator = this.activeDefenseOperator[Math.floor(Math.random() * this.activeDefenseOperator.length)];
+        const randOperator = this.activeDefenseOperator[Math.floor(Math.random() * this.activeDefenseOperator.length)];
         return new OperatorModel(randOperator.id, randOperator.name, randOperator.name + ".png", randOperator.pays, randOperator.description);
     }
 
@@ -115,7 +126,7 @@ export class GetOperatorService {
      * @returns {OperatorModel}
      */
     public getRandomAttack(): OperatorModel {
-        let randOperator = this.activeAttackOperator[Math.floor(Math.random() * this.activeAttackOperator.length)];
+        const randOperator = this.activeAttackOperator[Math.floor(Math.random() * this.activeAttackOperator.length)];
         return new OperatorModel(randOperator.id, randOperator.name, randOperator.name + ".png", randOperator.pays, randOperator.description);
     }
 
@@ -172,16 +183,14 @@ export class GetOperatorService {
      * @param id
      */
     public activateAttackOperator(id: number): void {
-        
-        let that = this;
 
-        this.deactiveAttackOperator.forEach(function (element, i) {
+        this.deactiveAttackOperator.forEach((element, i) => {
             if (element.id === id) {
-                that.storage.set("ATK/" + element.name, true);
-                that.activeAttackOperator.push(element);
-                that.deactiveAttackOperator.splice(i, 1);
+                this.storage.set("ATK/" + element.name, true);
+                this.activeAttackOperator.push(element);
+                this.deactiveAttackOperator.splice(i, 1);
             }
-        })
+        });
     }
 
     /***
@@ -189,16 +198,13 @@ export class GetOperatorService {
      * @param id
      */
     public deactivateAttackOperator(id: number): void {
-
-        let that = this;
-
-        this.activeAttackOperator.forEach(function (element, i) {
+        this.activeAttackOperator.forEach((element, i) => {
             if (element.id === id) {
-                that.storage.set("ATK/" + element.name, false);
-                that.deactiveAttackOperator.push(element);
-                that.activeAttackOperator.splice(i, 1);
+                this.storage.set("ATK/" + element.name, false);
+                this.deactiveAttackOperator.push(element);
+                this.activeAttackOperator.splice(i, 1);
             }
-        })
+        });
     }
 
     /***
@@ -206,16 +212,13 @@ export class GetOperatorService {
      * @param id
      */
     public activateDefenseOperator(id: number): void {
-        
-        let that = this;
-
-        this.deactiveDefenseOperator.forEach(function (element, i) {
+        this.deactiveDefenseOperator.forEach((element, i) => {
             if (element.id === id) {
-                that.storage.set("DEF/" + element.name, true);
-                that.activeDefenseOperator.push(element);
-                that.deactiveDefenseOperator.splice(i, 1);
+                this.storage.set("DEF/" + element.name, true);
+                this.activeDefenseOperator.push(element);
+                this.deactiveDefenseOperator.splice(i, 1);
             }
-        })
+        });
     }
 
     /***
@@ -223,15 +226,12 @@ export class GetOperatorService {
      * @param id
      */
     public deactivateDefenseOperator(id: number): void {
-
-        let that = this;
-
-        this.activeDefenseOperator.forEach(function (element, i) {
+        this.activeDefenseOperator.forEach((element, i) => {
             if (element.id === id) {
-                that.storage.set("DEF/" + element.name, false);
-                that.deactiveDefenseOperator.push(element);
-                that.activeDefenseOperator.splice(i, 1);
+                this.storage.set("DEF/" + element.name, false);
+                this.deactiveDefenseOperator.push(element);
+                this.activeDefenseOperator.splice(i, 1);
             }
-        })
+        });
     }
 }

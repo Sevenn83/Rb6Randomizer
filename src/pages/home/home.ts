@@ -9,7 +9,7 @@ import { OperatorModel } from "../../models/operator-model";
 })
 export class HomePage {
 
-    camp: boolean = false;
+    camp = false;
     randArrayOperator: OperatorModel[];
 
 
@@ -25,7 +25,7 @@ export class HomePage {
                 this.randArrayOperator.unshift(this.getOperatorService.getRandomAttack());
             }
         } catch (ex) {
-            let alert = this.alertCtrl.create({
+            const alert = this.alertCtrl.create({
                 title: 'Erreur',
                 subTitle: "Aucun opérateur activé",
                 buttons: ['Compris']
