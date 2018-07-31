@@ -3,126 +3,126 @@
     "id": 1,
     "name": "Recruit",
     "pays": "SAS, FBI SWAT, GIGN, Spetsnaz, GSG 9",
-    "description": ""
+    "description": "RECRUITDESC"
   },
   {
     "id": 2,
     "name": "Sledge",
     "pays": "SAS",
-    "description": ""
+    "description": "SLEDGEDESC"
   },
   {
     "id": 3,
     "name": "Thatcher",
     "pays": "SAS",
-    "description": ""
+    "description": "THATCHERDESC"
   },
   {
     "id": 4,
     "name": "Thermite",
     "pays": "FBI SWAT",
-    "description": ""
+    "description": "THERMITDESC"
   },
   {
     "id": 5,
     "name": "Ash",
     "pays": "FBI SWAT",
-    "description": ""
+    "description": "ASHDESC"
   },
   {
     "id": 6,
     "name": "Montagne",
     "pays": "GIGN",
-    "description": ""
+    "description": "MONTAGNEDESC"
   },
   {
     "id": 7,
     "name": "Twitch",
     "pays": "GIGN",
-    "description": ""
+    "description": "TWITCHDESC"
   },
   {
     "id": 8,
     "name": "Blitz",
     "pays": "GSG 9",
-    "description": ""
+    "description": "BLITZDESC"
   },
   {
     "id": 9,
     "name": "IQ",
     "pays": "GSG 9",
-    "description": ""
+    "description": "IQDESC"
   },
   {
     "id": 10,
     "name": "Glaz",
     "pays": "Spetsnaz",
-    "description": ""
+    "description": "GLAZDESC"
   },
   {
     "id": 11,
     "name": "Fuze",
     "pays": "Spetsnaz",
-    "description": ""
+    "description": "FUZEDESC"
   },
   {
     "id": 12,
     "name": "Buck",
     "pays": "JTF2",
-    "description": ""
+    "description": "BUCKDESC"
   },
   {
     "id": 13,
     "name": "Blackbeard",
     "pays": "Navy SEALs",
-    "description": ""
+    "description": "BLACKBEARDDESC"
   },
   {
     "id": 14,
     "name": "Capitao",
     "pays": "BOPE",
-    "description": ""
+    "description": "CAPITAODESC"
   },
   {
     "id": 15,
     "name": "Hibana",
     "pays": "SAT",
-    "description": ""
+    "description": "HIBANADESC"
   },
   {
     "id": 16,
     "name": "Jackal",
     "pays": "GEO",
-    "description": ""
+    "description": "JACKALDESC"
   },
   {
     "id": 17,
     "name": "Ying",
     "pays": "SDU",
-    "description": ""
+    "description": "YINGDESC"
   },
   {
     "id": 18,
     "name": "Zofia",
     "pays": "GROM",
-    "description": ""
+    "description": "ZOFIADESC"
   },
   {
     "id": 19,
     "name": "Dokkaebi",
     "pays": "707th SMB",
-    "description": ""
+    "description": "DOKKAEBIDESC"
   },
   {
     "id":20,
     "name": "Finka",
     "pays": "NRBC",
-    "description": ""
+    "description": "FINKADESC"
   },
   {
     "id": 21,
     "name": "Lion",
     "pays": "NRBC",
-    "description": ""
+    "description": "LIONDESC"
   }
 ]

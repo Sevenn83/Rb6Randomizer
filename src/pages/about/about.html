@@ -8,7 +8,7 @@
       <ion-thumbnail item-left>
         <img src="assets/icon/OPs-badges/{{operator.image}}" alt="op badge">
       </ion-thumbnail>
-      <ion-label>{{operator.name}} ({{operator.pays}})</ion-label>
+      <ion-label>{{operator.name}} ({{operator.pays}})<br><p>{{operator.description | translate}}</p></ion-label>
       <ion-toggle [(ngModel)]="operator.active" color="dark" (ionChange)="changeEtatDefenseur(operator.id)"></ion-toggle>
     </ion-item>
   </ion-list>

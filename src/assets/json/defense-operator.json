@@ -3,114 +3,126 @@
     "id": 1,
     "name": "Recruit",
     "pays": "SAS, FBI SWAT, GIGN, Spetsnaz, GSG 9",
-    "description": ""
+    "description": "RECRUITDESC"
   },
   {
     "id": 2,
     "name": "Mute",
     "pays": "SAS",
-    "description": ""
+    "description": "MUTEDESC"
   },
   {
     "id": 3,
     "name": "Smoke",
     "pays": "SAS",
-    "description": ""
+    "description": "SMOKEDESC"
   },
   {
     "id": 4,
     "name": "Pulse",
     "pays": "FBI SWAT",
-    "description": ""
+    "description": "PULSEDESC"
   },
   {
     "id": 5,
     "name": "Castle",
     "pays": "FBI SWAT",
-    "description": ""
+    "description": "CASTLEDESC"
   },
   {
     "id": 6,
     "name": "Rook",
     "pays": "GIGN",
-    "description": ""
+    "description": "ROOKDESC"
   },
   {
     "id": 7,
     "name": "Doc",
     "pays": "GIGN",
-    "description": ""
+    "description": "DOCDESC"
   },
   {
     "id": 8,
     "name": "Jager",
     "pays": "GSG 9",
-    "description": ""
+    "description": "JAGERDESC"
   },
   {
     "id": 9,
     "name": "Bandit",
     "pays": "GSG 9",
-    "description": ""
+    "description": "BANDITDESC"
   },
   {
     "id": 10,
     "name": "Kapkan",
     "pays": "Spetsnaz",
-    "description": ""
+    "description": "KAPKANDESC"
   },
   {
     "id": 11,
     "name": "Tatchanka",
     "pays": "Spetsnaz",
-    "description": ""
+    "description": "TATCHANKADESC"
   },
   {
     "id": 12,
     "name": "Frost",
     "pays": "JTF2",
-    "description": ""
+    "description": "FROSTDESC"
   },
   {
     "id": 13,
     "name": "Valkyrie",
     "pays": "Navy SEALs",
-    "description": ""
+    "description": "VALKYRIEDESC"
   },
   {
     "id": 14,
     "name": "Caveira",
     "pays": "BOPE",
-    "description": ""
+    "description": "CAVEIRADESC"
   },
   {
     "id": 15,
     "name": "Echo",
     "pays": "SAT",
-    "description": ""
+    "description": "ECHODESC"
   },
   {
     "id": 16,
     "name": "Mira",
     "pays": "GEO",
-    "description": ""
+    "description": "MIRADESC"
   },
   {
     "id": 17,
     "name": "Lesion",
     "pays": "SDU",
-    "description": ""
+    "description": "LESIONDESC"
   },
   {
     "id": 18,
     "name": "Ela",
     "pays": "GROM",
-    "description": ""
+    "description": "ELADESC"
   },
   {
     "id": 19,
     "name": "Vigil",
     "pays": "707th SMB",
-    "description": ""
+    "description": "VIGILDESC"
+  },
+  {
+    "id": 20,
+    "name": "Alibi",
+    "pays": "GIS",
+    "description": "ALIBIDESC"
+  },
+  {
+    "id": 21,
+    "name": "Maestro",
+    "pays": "GIS",
+    "description": "MAESTRODESC"
   }
 ]

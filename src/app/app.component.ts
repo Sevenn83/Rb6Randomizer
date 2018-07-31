@@ -14,7 +14,7 @@ import { TabsPage } from '../pages/tabs/tabs';
 export class MyApp {
   rootPage:any = TabsPage;
 
-  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, getOperatorService: GetOperatorService, private translate: TranslateService) {
+  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, getOperatorService: GetOperatorService, private readonly translate: TranslateService) {
 
     this.initTranslate();
 

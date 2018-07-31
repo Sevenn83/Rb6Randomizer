@@ -2,91 +2,104 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { GetOperatorService } from '../../services/getOperator.service';
 import { OperatorModel } from '../../models/operator-model';
+import { Storage } from '@ionic/storage';
 
 @Component({
-  selector: 'page-about',
-  templateUrl: 'about.html'
+    selector: 'page-about',
+    templateUrl: 'about.html'
 })
 export class AboutPage {
 
-  etatAllAttaquant: boolean = true;
-  etatAllDefenseur: boolean = true;
-  allAttackOperator: OperatorModel[];
-  allDefenseOperator: OperatorModel[];
+    etatAllAttaquant = true;
+    etatAllDefenseur = true;
+    allAttackOperator: OperatorModel[];
+    allDefenseOperator: OperatorModel[];
 
-  constructor(public navCtrl: NavController, public getOperatorService: GetOperatorService) {
-    this.allAttackOperator = [];
-    this.allDefenseOperator = [];
-    let that = this;
+    constructor(public navCtrl: NavController, public getOperatorService: GetOperatorService, private storage: Storage) {
+        this.allAttackOperator = [];
+        this.allDefenseOperator = [];
 
-    this.getOperatorService.getAllActiveAttackOperator().forEach(function (element) {
-      that.allAttackOperator.push(new OperatorModel(element.id, element.name, element.name + ".png", element.pays, element.description))
-    });
+        // Bouton allOperators Défenseurs
+        this.storage.get("DEF/allOperators").then((val) => {
+            if (val !== null) {
+                this.etatAllDefenseur = val;
+            }
+        });
+        // Bouton allOperators Attaquants
+        this.storage.get("ATK/allOperators").then((val) => {
+            if (val !== null) {
+                this.etatAllAttaquant = val;
+            }
+        });
+        
+        this.getOperatorService.getAllDefenseOperator().forEach((element) => {
+            this.storage.get("DEF/" + element.name).then((val) => {
+                this.allDefenseOperator.push(new OperatorModel(element.id, element.name, element.name + ".png", element.pays, element.description, val))
+            });
+        });
 
-    this.getOperatorService.getAllDeactiveAttackOperator().forEach(function (element) {
-      that.allAttackOperator.push(new OperatorModel(element.id, element.name, element.name + ".png", element.pays, element.description))
-    });
+        this.getOperatorService.getAllAttackOperator().forEach((element) => {
+            this.storage.get("ATK/" + element.name).then((val) => {
+                this.allAttackOperator.push(new OperatorModel(element.id, element.name, element.name + ".png", element.pays, element.description, val))
+            });
+        });
+    }
 
-    this.getOperatorService.getAllActiveDefenseOperator().forEach(function (element) {
-      that.allDefenseOperator.push(new OperatorModel(element.id, element.name, element.name + ".png", element.pays, element.description))
-    });
+    /***
+     * Change l'état de l'opérateur Attaquant
+     * @param id
+     */
+    changeEtatAttaquant(id: number): void {
+        this.allAttackOperator.forEach((element, i) => {
+            if (element.id === id) {
+                if (element.active === true) {
+                    this.getOperatorService.activateAttackOperator(id);
+                } else {
+                    this.getOperatorService.deactivateAttackOperator(id);
+                }
+            }
+        })
+    }
 
-    this.getOperatorService.getAllDeactiveDefenseOperator().forEach(function (element) {
-      that.allDefenseOperator.push(new OperatorModel(element.id, element.name, element.name + ".png", element.pays, element.description))
-    });
-  }
+    /***
+     * Change l'état de l'opérateur Défenseur
+     * @param id
+     */
+    changeEtatDefenseur(id: number): void {
+        this.allDefenseOperator.forEach((element, i) => {
+            if (element.id === id) {
+                if (element.active === true) {
+                    this.getOperatorService.activateDefenseOperator(id);
+                } else {
+                    this.getOperatorService.deactivateDefenseOperator(id);
+                }
+            }
+        })
+    }
 
-  /***
-   * Change l'état de l'opérateur
-   * @param id
-   */
-  changeEtatAttaquant(id:number): void {
+    /***
+     * Change l'état de tous les opérateurs Défenseurs
+     */
+    changeEtatAllDefenseur(): void {
+        this.changeEtatAll(this.etatAllDefenseur, this.allDefenseOperator, "DEF/");
+        this.storage.set("DEF/allOperators", this.etatAllDefenseur);
+    }
 
-    let that = this;
+    /***
+     * Change l'état de tous les opérateurs Attaquants
+     */
+    changeEtatAllAttaquant(): void {
+        this.changeEtatAll(this.etatAllAttaquant, this.allAttackOperator, "ATK/");
+        this.storage.set("ATK/allOperators", this.etatAllDefenseur);
+    }
 
-    this.allAttackOperator.forEach(function (element, i) {
-      if(element.id === id) {
-        if (element.active === true) {
-          that.getOperatorService.activateAttackOperator(id);
-        } else {
-          that.getOperatorService.deactivateAttackOperator(id);
-        }
-      }
-    })
-  }
-
-  /***
-   * Change l'état de l'opérateur
-   * @param id
-   */
-  changeEtatDefenseur(id:number): void {
-
-    let that = this;
-
-    this.allDefenseOperator.forEach(function (element, i) {
-      if(element.id === id) {
-        if (element.active === true) {
-          that.getOperatorService.activateDefenseOperator(id);
-        } else {
-          that.getOperatorService.deactivateDefenseOperator(id);
-        }
-      }
-    })
-  }
-
-  changeEtatAllDefenseur(): void {
-    this.changeEtatAll(this.etatAllDefenseur, this.allDefenseOperator);
-  }
-
-  changeEtatAllAttaquant(): void {
-    this.changeEtatAll(this.etatAllAttaquant, this.allAttackOperator);
-  }
-
-  private changeEtatAll(value: boolean, side: OperatorModel[]): void {
-    console.log(value);
-    side.forEach(function (element) {
-      element.active = value;
-    })
-  }
-
+    /***
+     * Change l'état de tous les opérateurs Défense
+     */
+    private changeEtatAll(value: boolean, side: OperatorModel[], type: string): void {
+        side.forEach((element) => {
+            element.active = value;
+            this.storage.set(type + element.name, value);
+        })
+    }
 }
