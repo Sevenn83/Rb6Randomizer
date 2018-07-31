@@ -16,12 +16,11 @@ export class GetOperatorService {
 
     private allDefenseOperator;
     private allAttackOperator;
-    private activeDefenseOperator;
-    private activeAttackOperator;
-    private deactiveDefenseOperator;
-    private deactiveAttackOperator;
-
-
+    private readonly activeDefenseOperator;
+    private readonly activeAttackOperator;
+    private readonly deactiveDefenseOperator;
+    private readonly deactiveAttackOperator;
+    
     constructor(private readonly http: HttpClient, private readonly platform: Platform, private storage: Storage) {
         this.allDefenseOperator = [];
         this.allAttackOperator = [];
@@ -36,9 +35,6 @@ export class GetOperatorService {
      * Permet la récupération des opérateurs dans les deux fichiers json
      */
     private getOperator(): void {
-
-        //Nettoyage localstorage
-        //this.storage.clear();
 
         let urlDefense = 'assets/json/defense-operator.json';
         let urlAttack = 'assets/json/attack-operator.json';
@@ -55,13 +51,6 @@ export class GetOperatorService {
         // Et des attaquants maintenant
         this.http.get(urlAttack)
             .subscribe(data => this.allAttackOperator = data, null, () => this.saveAttackOperatorsStatus());
-
-        /*
-        //Afficher dans la console tout ce qui est stocké dans localstorage
-        this.storage.forEach((value, key, index) => {
-            console.log(key, ": ", value);
-        });
-        */
 
         this.storage.get("DEF/allOperators").then((val) => {
             if (val === null) {
