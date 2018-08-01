@@ -16,7 +16,8 @@ export class AboutPage {
     allAttackOperator: OperatorModel[];
     allDefenseOperator: OperatorModel[];
 
-    constructor(public navCtrl: NavController, public alertCtrl: AlertController, public getOperatorService: GetOperatorService, private storage: Storage, private readonly translate: TranslateService) {
+    constructor(public navCtrl: NavController, public alertCtrl: AlertController, public getOperatorService: GetOperatorService,
+        private storage: Storage, private readonly translate: TranslateService) {
         this.allAttackOperator = [];
         this.allDefenseOperator = [];
 
@@ -34,13 +35,13 @@ export class AboutPage {
         });
         
         this.getOperatorService.getAllDefenseOperator().forEach((element) => {
-            this.storage.get("DEF/" + element.name).then((val) => {
+            this.storage.get(`DEF/${element.name}`).then((val) => {
                 this.allDefenseOperator.push(new OperatorModel(element.id, element.name, element.name + ".png", element.pays, element.description, val))
             });
         });
 
         this.getOperatorService.getAllAttackOperator().forEach((element) => {
-            this.storage.get("ATK/" + element.name).then((val) => {
+            this.storage.get(`ATK/${element.name}`).then((val) => {
                 this.allAttackOperator.push(new OperatorModel(element.id, element.name, element.name + ".png", element.pays, element.description, val))
             });
         });
@@ -110,8 +111,8 @@ export class AboutPage {
     private operatorInfos(operator: OperatorModel): void {
         this.translate.get(operator.description).subscribe((val) => {
             const alert = this.alertCtrl.create({
-                title: "<img src='assets/icon/OPs-badges/" + operator.image + "' alt='op badge'>",
-                subTitle: operator.name + " (" + operator.pays + ")",
+                title: `<img src='assets/icon/OPs-badges/${operator.image}' alt='op badge'>`,
+                subTitle: `${operator.name} (${operator.pays})`,
                 message: val
             });
             alert.present();

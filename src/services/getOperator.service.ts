@@ -56,10 +56,13 @@ export class GetOperatorService {
         this.initAllOperatorSwitch("DEF");
     }
 
+    /***
+     * Check s'il existe une valeur dans le localstorage pour les switch d'équipes
+     */
     private initAllOperatorSwitch(type: string): void {
-        this.storage.get(type + "/allOperators").then((val) => {
+        this.storage.get(`${type}/allOperators`).then((val) => {
             if (val === null) {
-                this.storage.set(type + "/allOperators", true);
+                this.storage.set(`${type}/allOperators`, true);
             }
         });
     }
@@ -69,9 +72,9 @@ export class GetOperatorService {
      */
     public saveDefenseOperatorsStatus(): void {
         this.allDefenseOperator.forEach((element) => {
-            this.storage.get("DEF/" + element.name).then((val) => {
+            this.storage.get(`DEF/${element.name}`).then((val) => {
                 if (val === null) {
-                    this.storage.set("DEF/" + element.name, true);
+                    this.storage.set(`DEF/${element.name}`, true);
                 }
                 if (val === true) {
                     this.activeDefenseOperator.push(element);
@@ -87,9 +90,9 @@ export class GetOperatorService {
      */
     public saveAttackOperatorsStatus(): void {
         this.allAttackOperator.forEach((element) => {
-            this.storage.get("ATK/" + element.name).then((val) => {
+            this.storage.get(`ATK/${element.name}`).then((val) => {
                 if (val === null) {
-                    this.storage.set("ATK/" + element.name, true);
+                    this.storage.set(`ATK/${element.name}`, true);
                 }
                 if (val === true) {
                     this.activeAttackOperator.push(element);
@@ -106,7 +109,7 @@ export class GetOperatorService {
      */
     public getRandomDefense(): OperatorModel {
         const randOperator = this.activeDefenseOperator[Math.floor(Math.random() * this.activeDefenseOperator.length)];
-        return new OperatorModel(randOperator.id, randOperator.name, randOperator.name + ".png", randOperator.pays, randOperator.description);
+        return new OperatorModel(randOperator.id, randOperator.name, `${randOperator.name}.png`, randOperator.pays, randOperator.description);
     }
 
     /***
@@ -115,7 +118,7 @@ export class GetOperatorService {
      */
     public getRandomAttack(): OperatorModel {
         const randOperator = this.activeAttackOperator[Math.floor(Math.random() * this.activeAttackOperator.length)];
-        return new OperatorModel(randOperator.id, randOperator.name, randOperator.name + ".png", randOperator.pays, randOperator.description);
+        return new OperatorModel(randOperator.id, randOperator.name, `${randOperator.name}.png`, randOperator.pays, randOperator.description);
     }
 
     /***
@@ -174,7 +177,7 @@ export class GetOperatorService {
 
         this.deactiveAttackOperator.forEach((element, i) => {
             if (element.id === id) {
-                this.storage.set("ATK/" + element.name, true);
+                this.storage.set(`ATK/${element.name}`, true);
                 this.activeAttackOperator.push(element);
                 this.deactiveAttackOperator.splice(i, 1);
             }
@@ -188,7 +191,7 @@ export class GetOperatorService {
     public deactivateAttackOperator(id: number): void {
         this.activeAttackOperator.forEach((element, i) => {
             if (element.id === id) {
-                this.storage.set("ATK/" + element.name, false);
+                this.storage.set(`ATK/${element.name}`, false);
                 this.deactiveAttackOperator.push(element);
                 this.activeAttackOperator.splice(i, 1);
             }
@@ -202,7 +205,7 @@ export class GetOperatorService {
     public activateDefenseOperator(id: number): void {
         this.deactiveDefenseOperator.forEach((element, i) => {
             if (element.id === id) {
-                this.storage.set("DEF/" + element.name, true);
+                this.storage.set(`DEF/${element.name}`, true);
                 this.activeDefenseOperator.push(element);
                 this.deactiveDefenseOperator.splice(i, 1);
             }
@@ -216,7 +219,7 @@ export class GetOperatorService {
     public deactivateDefenseOperator(id: number): void {
         this.activeDefenseOperator.forEach((element, i) => {
             if (element.id === id) {
-                this.storage.set("DEF/" + element.name, false);
+                this.storage.set(`DEF/${element.name}`, false);
                 this.deactiveDefenseOperator.push(element);
                 this.activeDefenseOperator.splice(i, 1);
             }
