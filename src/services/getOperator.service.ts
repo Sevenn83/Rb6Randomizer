@@ -52,15 +52,14 @@ export class GetOperatorService {
         this.http.get(urlAttack)
             .subscribe(data => this.allAttackOperator = data, null, () => this.saveAttackOperatorsStatus());
 
-        this.storage.get("DEF/allOperators").then((val) => {
-            if (val === null) {
-                this.storage.set("DEF/allOperators", true);
-            }
-        });
+        this.initAllOperatorSwitch("ATK");
+        this.initAllOperatorSwitch("DEF");
+    }
 
-        this.storage.get("ATK/allOperators").then((val) => {
+    private initAllOperatorSwitch(type: string): void {
+        this.storage.get(type + "/allOperators").then((val) => {
             if (val === null) {
-                this.storage.set("ATK/allOperators", true);
+                this.storage.set(type + "/allOperators", true);
             }
         });
     }
