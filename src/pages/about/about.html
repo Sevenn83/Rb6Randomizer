@@ -5,10 +5,10 @@
       <ion-toggle (ionChange)="changeEtatAllDefenseur()" [(ngModel)]="etatAllDefenseur" color="dark"></ion-toggle>
     </ion-list-header>
     <ion-item *ngFor="let operator of allDefenseOperator">
-      <ion-thumbnail item-left>
+      <ion-thumbnail item-left (click)="operatorInfos(operator)">
         <img src="assets/icon/OPs-badges/{{operator.image}}" alt="op badge">
       </ion-thumbnail>
-      <ion-label>{{operator.name}} ({{operator.pays}})<br><p>{{operator.description | translate}}</p></ion-label>
+      <ion-label (click)="operatorInfos(operator)">{{operator.name}} ({{operator.pays}})<br><p>{{operator.description | translate}}</p></ion-label>
       <ion-toggle [(ngModel)]="operator.active" color="dark" (ionChange)="changeEtatDefenseur(operator.id)"></ion-toggle>
     </ion-item>
   </ion-list>

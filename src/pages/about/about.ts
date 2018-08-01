@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, AlertController } from 'ionic-angular';
 import { GetOperatorService } from '../../services/getOperator.service';
 import { OperatorModel } from '../../models/operator-model';
 import { Storage } from '@ionic/storage';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
     selector: 'page-about',
@@ -15,7 +16,7 @@ export class AboutPage {
     allAttackOperator: OperatorModel[];
     allDefenseOperator: OperatorModel[];
 
-    constructor(public navCtrl: NavController, public getOperatorService: GetOperatorService, private storage: Storage) {
+    constructor(public navCtrl: NavController, public alertCtrl: AlertController, public getOperatorService: GetOperatorService, private storage: Storage, private readonly translate: TranslateService) {
         this.allAttackOperator = [];
         this.allDefenseOperator = [];
 
@@ -101,5 +102,19 @@ export class AboutPage {
             element.active = value;
             this.storage.set(type + element.name, value);
         })
+    }
+
+    /***
+     * Affiche les infos de l'opérateur
+     */
+    private operatorInfos(operator: OperatorModel): void {
+        this.translate.get(operator.description).subscribe((val) => {
+            const alert = this.alertCtrl.create({
+                title: "<img src='assets/icon/OPs-badges/" + operator.image + "' alt='op badge'>",
+                subTitle: operator.name + " (" + operator.pays + ")",
+                message: val
+            });
+            alert.present();
+        });
     }
 }
