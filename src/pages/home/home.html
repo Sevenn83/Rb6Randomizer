@@ -1,36 +1,36 @@
 <ion-content padding>
-  <ion-grid>
-    <ion-row>
-      <ion-col center text-center>
-        <p>{{ 'DEFENSE' | translate }}</p>
-        <ion-toggle [(ngModel)]="camp" color="dark"></ion-toggle>
-        <p>{{ 'ATTACK' | translate }}</p>
-      </ion-col>
-    </ion-row>
-    <ion-row style="height: 65px;">
-      <ion-col>
-        <ion-fab center>
-          <button (tap)="getRandOperator()" ion-fab color="dark"><ion-icon name="shuffle"></ion-icon></button>
-        </ion-fab>
-      </ion-col>
-      <ion-col>
-        <ion-fab center>
-          <button (tap)="cleanRandOperator()" ion-fab color="dark"><ion-icon name="refresh"></ion-icon></button>
-        </ion-fab>
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col>
-        <p id="result-list">{{ 'RESULT' | translate }} :</p>
-        <ion-list text-center>
-          <ion-item *ngFor="let operator of randArrayOperator">
-            <ion-thumbnail item-left>
-              <img src="assets/icon/OPs-badges/{{operator.image}}" alt="op badge">
-            </ion-thumbnail>
-            <ion-label>{{operator.name}} ({{operator.pays}})</ion-label>
-          </ion-item>
-        </ion-list>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
+    <ion-grid>
+        <ion-row>
+            <ion-col center text-center>
+                <p>{{ 'DEFENSE' | translate }}</p>
+                <ion-toggle [(ngModel)]="camp" color="dark"></ion-toggle>
+                <p>{{ 'ATTACK' | translate }}</p>
+            </ion-col>
+        </ion-row>
+        <ion-row style="height: 65px;">
+            <ion-col>
+                <ion-fab center>
+                    <button (tap)="getRandOperator()" ion-fab color="dark"><ion-icon name="shuffle"></ion-icon></button>
+                </ion-fab>
+            </ion-col>
+            <ion-col>
+                <ion-fab center>
+                    <button (tap)="cleanRandOperator()" ion-fab color="dark"><ion-icon name="refresh"></ion-icon></button>
+                </ion-fab>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col>
+                <p id="result-list">{{ 'RESULT' | translate }} :</p>
+                <ion-list text-center>
+                    <ion-item *ngFor="let operator of randArrayOperator">
+                        <ion-thumbnail item-left>
+                            <img src="assets/icon/OPs-badges/{{operator.image}}" alt="op badge">
+                        </ion-thumbnail>
+                        <ion-label>{{operator.name}}<br><p>{{operator.pays}}</p></ion-label>
+                    </ion-item>
+                </ion-list>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
 </ion-content>

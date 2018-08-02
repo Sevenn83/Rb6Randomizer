@@ -1,8 +1,8 @@
 {
   "name": "Rb6Randomizer",
-  "app_id": "2384f610",
-  "type": "ionic-angular",
   "integrations": {
     "cordova": {}
-  }
+  },
+  "type": "ionic-angular",
+  "pro_id": "2384f610"
 }
