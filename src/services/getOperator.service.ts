@@ -109,7 +109,8 @@ export class GetOperatorService {
      */
     public getRandomDefense(): OperatorModel {
         const randOperator = this.activeDefenseOperator[Math.floor(Math.random() * this.activeDefenseOperator.length)];
-        return new OperatorModel(randOperator.id, randOperator.name, `${randOperator.name}.png`, randOperator.pays, randOperator.description);
+        let operator = new OperatorModel(randOperator.id, randOperator.name, `${randOperator.name}.png`, randOperator.pays, randOperator.description);
+        return this.checkRecruit(operator);
     }
 
     /***
@@ -118,7 +119,20 @@ export class GetOperatorService {
      */
     public getRandomAttack(): OperatorModel {
         const randOperator = this.activeAttackOperator[Math.floor(Math.random() * this.activeAttackOperator.length)];
-        return new OperatorModel(randOperator.id, randOperator.name, `${randOperator.name}.png`, randOperator.pays, randOperator.description);
+        let operator = new OperatorModel(randOperator.id, randOperator.name, `${randOperator.name}.png`, randOperator.pays, randOperator.description);
+        return this.checkRecruit(operator);
+    }
+
+    /***
+     * Check si l'operateur est une recrue et met à jour son pays si oui
+     * @returns {OperatorModel}
+     */
+    public checkRecruit(operator: OperatorModel): OperatorModel {
+        if (operator.name === "Recruit") {
+            let pays = operator.pays.split(",");
+            operator.pays = pays[Math.floor(Math.random() * pays.length)];
+        }
+        return operator;
     }
 
     /***
