@@ -43,5 +43,7 @@
   "FINKADESC": "Augmente temporairement la santé de son équipe, aide les alliés blessés.",
   "LIONDESC": "Détecte les mouvements, lui offrant une vue d'ensemble sur le champ de bataille.",
   "ALIBIDESC": "Déploie trois hologrammes d'elle même qui repèrent l'ennemi lorsqu'ils sont pris pour cible.",
-  "MAESTRODESC": "Déploie deux caméras blindées controllées à distance armées d'un laser à forte énergie."
+  "MAESTRODESC": "Déploie deux caméras blindées controllées à distance armées d'un laser à forte énergie.",
+  "MAVERICKDESC": "Le chalumeau \"fait \" de Maverick peut percer n'importe quelle surface, y compris les murs renforcés et les trappes.",
+  "CLASHDESC": "Son bouclier blindé extensible peut ralentir les ennemis grâce à un générateur de champ chargé (GCC), qui émane directement du bouclier sous une forme cylindrique. Les adversaires pris dans le GCC peuvent également subir de faibles dégâts sur la durée."
 }

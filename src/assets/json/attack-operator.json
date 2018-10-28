@@ -124,5 +124,11 @@
     "name": "Lion",
     "pays": "NRBC",
     "description": "LIONDESC"
+  },
+  {
+    "id": 22,
+    "name": "Maverick",
+    "pays": "L'UNITÉ",
+    "description": "MAVERICKDESC"
   }
 ]

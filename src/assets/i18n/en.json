@@ -43,5 +43,7 @@
   "FINKADESC": "Gives the team a brief gain in HP and revives allies in a DBNO state.",
   "LIONDESC": "Detects enemy movement, providing an overview of the battlefield.",
   "ALIBIDESC": "Deploys three holograms of herself that tags hostile when fired upon.",
-  "MAESTRODESC": "Deploys two remote controlled bulletproof cameras armed with a high-energy laser."
+  "MAESTRODESC": "Deploys two remote controlled bulletproof cameras armed with a high-energy laser.",
+  "MAVERICKDESC": "Maverick’s D.I.Y. blowtorch can breach any surface, including reinforced walls and hatches.",
+  "CLASHDESC": "Her bulletproof extendable shield has the ability to slow down opponents by using a high voltage Charged Field Generator (CFG) that emanates directly in front of the shield in a cylindrical shape. Opponents caught in the CFG also sustain low damage over time."
 }

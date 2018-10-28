@@ -124,5 +124,11 @@
     "name": "Maestro",
     "pays": "GIS",
     "description": "MAESTRODESC"
+  },
+  {
+    "id": 22,
+    "name": "Clash",
+    "pays": "MPS",
+    "description": "CLASHDESC"
   }
 ]
