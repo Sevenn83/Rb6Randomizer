@@ -45,5 +45,7 @@
   "ALIBIDESC": "Deploys three holograms of herself that tags hostile when fired upon.",
   "MAESTRODESC": "Deploys two remote controlled bulletproof cameras armed with a high-energy laser.",
   "MAVERICKDESC": "Maverick’s D.I.Y. blowtorch can breach any surface, including reinforced walls and hatches.",
-  "CLASHDESC": "Her bulletproof extendable shield has the ability to slow down opponents by using a high voltage Charged Field Generator (CFG) that emanates directly in front of the shield in a cylindrical shape. Opponents caught in the CFG also sustain low damage over time."
+  "CLASHDESC": "Her bulletproof extendable shield has the ability to slow down opponents by using a high voltage Charged Field Generator (CFG) that emanates directly in front of the shield in a cylindrical shape. Opponents caught in the CFG also sustain low damage over time.",
+  "KAIDDESC": "Kaid is equipped with two throwable \"Rtila\" Electroclaws that can be thrown onto any surface it can attach to, electrifying metal objects within a certain radius of the gadget.",
+  "NOMADDESC": "Nomad is equipped with an Airjab launcher which can shoot out up to three \"Airjab\" repulsion grenades that will stick to any surface she shoots at and knock down all in its effective radius when triggered."
 }

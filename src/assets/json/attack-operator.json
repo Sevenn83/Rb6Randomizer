@@ -130,5 +130,11 @@
     "name": "Maverick",
     "pays": "L'UNITÉ",
     "description": "MAVERICKDESC"
+  },
+  {
+    "id": 23,
+    "name": "Nomad",
+    "pays": "GIGR",
+    "description": "NOMADDESC"
   }
 ]

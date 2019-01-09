@@ -45,5 +45,7 @@
   "ALIBIDESC": "Déploie trois hologrammes d'elle même qui repèrent l'ennemi lorsqu'ils sont pris pour cible.",
   "MAESTRODESC": "Déploie deux caméras blindées controllées à distance armées d'un laser à forte énergie.",
   "MAVERICKDESC": "Le chalumeau \"fait \" de Maverick peut percer n'importe quelle surface, y compris les murs renforcés et les trappes.",
-  "CLASHDESC": "Son bouclier blindé extensible peut ralentir les ennemis grâce à un générateur de champ chargé (GCC), qui émane directement du bouclier sous une forme cylindrique. Les adversaires pris dans le GCC peuvent également subir de faibles dégâts sur la durée."
+  "CLASHDESC": "Son bouclier blindé extensible peut ralentir les ennemis grâce à un générateur de champ chargé (GCC), qui émane directement du bouclier sous une forme cylindrique. Les adversaires pris dans le GCC peuvent également subir de faibles dégâts sur la durée.",
+  "KAIDDESC": "Kaid est équipé de deux Electros-griffes \"Rtila\" jetables qui peuvent être jetés sur n'importe quelle surface à laquelle ils peuvent être fixés, électrisant des objets métalliques dans un certain rayon du gadget.",
+  "NOMADDESC": "Nomad est équipé d'un lanceur Airjab qui peut tirer jusqu'à trois grenades de répulsion \"Airjab\" qui s'accrochent à n'importe quelle surface sur laquelle elle tire et qui, une fois déclenchées, repousse tout dans son rayon effectif."
 }
