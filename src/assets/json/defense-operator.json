@@ -130,5 +130,11 @@
     "name": "Clash",
     "pays": "MPS",
     "description": "CLASHDESC"
+  },
+  {
+    "id": 23,
+    "name": "Kaid",
+    "pays": "GIGR",
+    "description": "KAIDDESC"
   }
 ]
